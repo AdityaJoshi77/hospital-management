@@ -1,61 +1,40 @@
+import java.util.Scanner;
+
 public class Employee {
+    String employeeName;
     int employeeID;
     String department;
     String jobTitle;
-    int Salary;
+    int salary;
+    String type;
 
-    public String getDepartment() {
-        return department;
+    
+    public Employee()
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Employee'S NAME: ");
+        employeeName = scan.nextLine();
+
+
+        System.out.print("Employee ID: ");
+        employeeID = scan.nextInt();
+
+        System.out.print("Department: ");
+        department = scan.nextLine();
+
+        System.out.print("Job Title: ");
+        jobTitle = scan.nextLine();
+            
+        System.out.print("Salary: ");
+        salary = scan.nextInt();
     }
 
-    public String getJobTitle() {
-        return jobTitle;
+    public void displayEmployee()
+    {
+        System.out.println("FULL NAME: " + employeeName);
+        System.out.println("Employee ID: " + employeeID);
+        System.out.println("Department: " + department);
+        System.out.println("Job Title: "  + jobTitle);
+        System.out.println("Salary: " + salary);
     }
-
-    public int getEmployeeID() {
-        return employeeID;
-    }
-
-    public int getSalary() {
-        return Salary;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public void setEmployeeID(int employeeID) {
-        this.employeeID = employeeID;
-    }
-
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
-    }
-
-    public void setSalary(int salary) {
-        Salary = salary;
-    }
-
-    // Reserved For Admin Class
-    // public static void main(String[] args) {
-    // System.out.println("Enter Employee Details: ");
-    // System.out.println("Choose Employe:\n1: Doctor\n2: Nurse");
-    // Scanner scan = new Scanner(System.in);
-    // int n = scan.nextInt();
-    // switch (n) {
-    // case 1:
-    // Doctor d = new Employee();
-
-    // break;
-
-    // case 2:
-    // Nurse ns = new Nurse();
-    // break;
-
-    // default:
-    // System.out.println("Wrong input.");
-    // break;
-    // }
-    // scan.close();
-    // }
 }

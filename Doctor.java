@@ -1,28 +1,24 @@
+import java.util.Scanner;
+
+
 public class Doctor extends Employee {
 
     String specialization;
 
-    public int numberOfPatientsAssigned = 0;
+     int numberOfPatientsAssigned = 0;
 
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
-    }
-
-    public String getSpecialization() {
-        return specialization;
-    }
-
-    void setNumberOfPatientsAssigned() {
+      
+    public Doctor()
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Doctor's Specialization: ");
+        this.specialization = scan.nextLine();
+        this.type = "Doctor";
         numberOfPatientsAssigned++;
     }
-
-    public int getNumberOfPatientsAssigned() {
-        return numberOfPatientsAssigned;
-    }
-
-    public static void main(String[] args) {
-        Doctor d1 = new Doctor();
-        d1.setNumberOfPatientsAssigned();
-        System.out.println(d1.getNumberOfPatientsAssigned());
+    public void displayDoctor()
+    {
+        System.out.println("Specialization: " + specialization);
+        System.out.println("Number of Patients Assigned: " + numberOfPatientsAssigned);
     }
 }

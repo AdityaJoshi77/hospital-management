@@ -1,6 +1,6 @@
-public class Nurse {
+public class Nurse extends Employee {
 
-    public int numberOfPatientsAssigned = 0;
+     int numberOfPatientsAssigned = 0;
 
     void setNumberOfPatientsAssigned() {
         numberOfPatientsAssigned++;
@@ -8,5 +8,16 @@ public class Nurse {
 
     public int getNumberOfPatientsAssigned() {
         return numberOfPatientsAssigned;
+    }
+
+        
+    public Nurse()
+    {
+        type = "Nurse";
+        numberOfPatientsAssigned++;
+    }
+    public void displayNurse()
+    {
+        System.out.println("Number of Patients Assigned: " + numberOfPatientsAssigned);
     }
 }

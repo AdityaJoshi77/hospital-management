@@ -8,18 +8,13 @@ public class Patient
     private String Gender;
     private int Age;    
 
-    public static void main(String[] args) 
-    {
-        Patient P1 = new Patient();
-        P1.getPatient();
-        P1.displayPatient();   
-    }
 
-    public void getPatient()
+    public Patient()
     {
         Scanner scan = new Scanner(System.in);
         System.out.print("PATIENT'S NAME: ");
             PatientName = scan.nextLine();
+            
 
         System.out.print("GENDER: ");
             Gender = scan.nextLine();
