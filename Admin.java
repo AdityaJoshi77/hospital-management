@@ -1,7 +1,11 @@
 import java.util.*;
-
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
 public class Admin {
-    public static void main(String[] args) 
+
+    
+    public static void main(String[] args) throws IOException
     {
         Scanner scan = new Scanner(System.in);
 
@@ -15,7 +19,7 @@ public class Admin {
         {
             case 1:
             {   
-                System.out.println("Enter your choice : ");
+                System.out.println("\nEnter your choice : ");
                 System.out.println("1. Add Patient.");
                 System.out.println("2. Remove Patient.");
                 System.out.println("3. Print Medical Report Of Patient.");
@@ -36,14 +40,15 @@ public class Admin {
             }
             case 2:
             {
-            System.out.println("Enter your choice : ");
+            System.out.println("\nEnter your choice : ");
                 System.out.println("1. Add Doctor.");
                 System.out.println("2. Remove Doctor.");
                 int choice2 = scan.nextInt();
                 switch (choice2) {
                     case 1:
                         Doctor d1 = new Doctor();
-                        System.out.println("Details you entered: ");
+                        System.out.println("\n\nDetails you entered: ");
+                        d1.displayEmployee();
                         d1.displayDoctor();
                         break;
 
@@ -54,14 +59,15 @@ public class Admin {
                 break;       
             }
             case 3:
-            System.out.println("Enter your choice : ");
+            System.out.println("\nEnter your choice : ");
                 System.out.println("1. Add Nurse.");
                 System.out.println("2. Remove Nurse.");
                 int choice3 = scan.nextInt();
                 switch (choice3) {
                     case 1:
                         Nurse n1 = new Nurse();
-                        System.out.println("Details you entered: ");
+                        System.out.println("\nDetails you entered: ");
+                        n1.displayEmployee();
                         n1.displayNurse();
                         break;
                 
