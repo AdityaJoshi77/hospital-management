@@ -2,7 +2,7 @@ import java.util.*;
 public class Patient
 {
     private String PatientName;
-    private int Contact_No;
+    private String Contact_No;
     private String Address;
     private String BloodGroup;
     private String Gender;
@@ -18,17 +18,19 @@ public class Patient
     public void getPatient()
     {
         Scanner scan = new Scanner(System.in);
-        System.out.print("FULL NAME: ");
+        System.out.print("PATIENT'S NAME: ");
             PatientName = scan.nextLine();
-
-        System.out.print("CONTACT NUMBER: ");
-            Contact_No = scan.nextInt();
-
-        System.out.print("BLOOD GROUP: ");
-            BloodGroup = scan.nextLine();
 
         System.out.print("GENDER: ");
             Gender = scan.nextLine();
+
+        System.out.print("CONTACT NUMBER: ");
+            Contact_No = scan.nextLine();
+
+
+        System.out.print("BLOOD GROUP: ");
+        System.out.print("Enter the blood group if known, else enter NA : ");
+            BloodGroup = scan.nextLine();
 
         System.out.print("ADDRESS: ");
             Address = scan.nextLine();
@@ -39,11 +41,11 @@ public class Patient
 
     public void displayPatient()
     {
-        System.out.print("FULL NAME: " + PatientName);
-        System.out.print("CONTACT NUMBER: " + Contact_No);
-        System.out.print("BLOOD GROUP: " + BloodGroup);
-        System.out.print("GENDER: "  + Gender);
-        System.out.print("ADDRESS: " + Address);
-        System.out.print("AGE: " + Age);
+        System.out.println("FULL NAME: " + PatientName);
+        System.out.println("CONTACT NUMBER: " + Contact_No);
+        System.out.println("BLOOD GROUP: " + BloodGroup);
+        System.out.println("GENDER: "  + Gender);
+        System.out.println("ADDRESS: " + Address);
+        System.out.println("AGE: " + Age);
     }
 }
