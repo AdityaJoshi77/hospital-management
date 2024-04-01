@@ -1,12 +1,14 @@
 import java.util.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.sql.DatabaseMetaData;
 import java.io.IOException;
 public class Admin {
 
     
     public static void main(String[] args) throws IOException
     {
+        DataBase dat = new DataBase();
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Enter your choice : ");
@@ -28,10 +30,14 @@ public class Admin {
                 {
                     case 1:
                         Patient p1 = new Patient();
+                        dat.patData.add(p1);
                         System.out.println("Details you entered: ");
                         p1.displayPatient();
                         break;
-                
+                    
+                    case 2:
+                    System.out.println("Enter Patient ID: ");
+
                     default:
                     System.out.println("Enter Valid Choice.");
                         break;
@@ -47,10 +53,14 @@ public class Admin {
                 switch (choice2) {
                     case 1:
                         Doctor d1 = new Doctor();
+                        dat.docData.add(d1);
                         System.out.println("\n\nDetails you entered: ");
                         d1.displayEmployee();
                         d1.displayDoctor();
                         break;
+
+                        case 2:
+                        System.out.println("Enter Doctor ID: ");
 
                     default:
                     System.out.println("Enter Valid Choice.");
@@ -66,11 +76,15 @@ public class Admin {
                 switch (choice3) {
                     case 1:
                         Nurse n1 = new Nurse();
+                        dat.nurData.add(n1);
                         System.out.println("\nDetails you entered: ");
                         n1.displayEmployee();
                         n1.displayNurse();
                         break;
-                
+                    
+                        case 2:
+                        System.out.println("Enter Nurse ID: ");
+                        
                     default:
                     System.out.println("Enter Valid Choice.");
                     break;
