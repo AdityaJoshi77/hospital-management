@@ -1,11 +1,15 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class Doctor extends Employee {
 
+    static int DoctorID_Gen = 100;
+    ArrayList<Integer>PatientsAssignedToDoc = new ArrayList<>();
+    private int DoctorID;
     String specialization;
 
      int numberOfPatientsAssigned = 0;
@@ -13,6 +17,7 @@ public class Doctor extends Employee {
       
     public Doctor() throws IOException
     {
+        DoctorID = ++DoctorID_Gen;
         BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
         // String name = bfr.readLine();
         // System.out.println(name);

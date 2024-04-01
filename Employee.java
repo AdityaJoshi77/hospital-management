@@ -15,15 +15,12 @@ public class Employee {
     public Employee() throws IOException
     {
         BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
-    
-
         Scanner scan = new Scanner(System.in);
         
         System.out.print("\nEmployee's Name: ");
         // employeeName = scan.nextLine();
         employeeName = bfr.readLine();
   
-
 
         System.out.print("Employee ID: ");
         employeeID = scan.nextInt();

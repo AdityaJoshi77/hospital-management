@@ -1,6 +1,8 @@
 import java.util.*;
 public class Patient
 {
+    static int PatientID_Gen = 100;
+    private int PatientID;
     private String PatientName;
     private String Contact_No;
     private String Address;
@@ -8,9 +10,10 @@ public class Patient
     private String Gender;
     private int Age;    
 
-
     public Patient()
     {
+        PatientID = ++PatientID_Gen;
+
         Scanner scan = new Scanner(System.in);
         System.out.print("\nPATIENT'S NAME: ");
             PatientName = scan.nextLine();
@@ -32,10 +35,12 @@ public class Patient
 
         System.out.print("AGE: ");
             Age = scan.nextInt();
+        
     }
 
     public void displayPatient()
     {
+        System.out.println("Patient ID: "+ PatientID);
         System.out.println("FULL NAME: " + PatientName);
         System.out.println("CONTACT NUMBER: " + Contact_No);
         System.out.println("BLOOD GROUP: " + BloodGroup);
