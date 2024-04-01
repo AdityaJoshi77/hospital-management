@@ -1,3 +1,7 @@
+import java.io.IOError;
+import java.io.IOException;
+import java.io.InvalidObjectException;
+
 public class Nurse extends Employee {
 
      int numberOfPatientsAssigned = 0;
@@ -11,7 +15,7 @@ public class Nurse extends Employee {
     }
 
         
-    public Nurse()
+    public Nurse() throws IOException
     {
         type = "Nurse";
         numberOfPatientsAssigned++;

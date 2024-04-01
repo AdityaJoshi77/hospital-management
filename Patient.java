@@ -12,7 +12,7 @@ public class Patient
     public Patient()
     {
         Scanner scan = new Scanner(System.in);
-        System.out.print("PATIENT'S NAME: ");
+        System.out.print("\nPATIENT'S NAME: ");
             PatientName = scan.nextLine();
             
 
