@@ -62,15 +62,45 @@ public class DataBase {
         DataBase datab = new DataBase();
         
 
-        
+    }
 
-        System.out.println("\n------------------Nurses Data----------------------");
-        for(Nurse nur : datab.nurData)
+    public void searchPatient(int patID)
+    {
+        for(Patient pat : this.patData)
         {
-            System.out.println("---------------------------------------------------\n");
-            nur.displayNurse();
+            if(pat.get_Id() == patID)
+            {
+                pat.displayPatient();
+                return;
+            }
         }
+        System.out.println("Patient Not Found...");
+    }
 
+    public void searchDoctor(int docID)
+    {
+        for(Doctor doc : this.docData)
+        {
+            if(doc.get_Id() == docID)
+            {
+                doc.displayDoctor();
+                return;
+            }
+        }
+        System.out.println("Doctor Not Found...");
+    }
+
+    public void searchNurse(int nurID)
+    {
+        for(Nurse nur : this.nurData)
+        {
+            if(nur.get_Id() == nurID)
+            {
+                nur.displayNurse();
+                return;
+            }
+        }
+        System.out.println("Nurse Not Found...");
     }
 
     public void displayAllPatients()

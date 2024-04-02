@@ -22,8 +22,9 @@ public class Admin {
                 System.out.println("\nEnter your choice : ");
                 System.out.println("1. Add Patient.");
                 System.out.println("2. Remove Patient.");
-                System.out.println("3. View All Patients");
-                System.out.println("4. Print Medical Report Of Patient.");
+                System.out.println("3. Search Patient");
+                System.out.println("4. View All Patients");
+                System.out.println("5. Print Medical Report Of Patient.");
                 int choice1 = scan.nextInt();
                 switch (choice1) {
                     case 1:
@@ -33,11 +34,15 @@ public class Admin {
                         p1.displayPatient();
                         break;
 
-                    case 2:
-                        System.out.println("Enter Patient ID: ");
-                    
                     case 3:
+                        System.out.println("Enter Patient ID: ");
+                        int searchID = scan.nextInt();
+                        dat.searchPatient(searchID);
+                        break;
+                    
+                    case 4:
                         dat.displayAllPatients();
+                        break;
 
                     default:
                         System.out.println("Enter Valid Choice.");
@@ -49,7 +54,8 @@ public class Admin {
                 System.out.println("\nEnter your choice : ");
                 System.out.println("1. Add Doctor.");
                 System.out.println("2. Remove Doctor.");
-                System.out.println("3. View All Doctors");
+                System.out.println("3. Search Doctor");
+                System.out.println("4. View All Doctors");
 
                 int choice2 = scan.nextInt();
                 switch (choice2) {
@@ -57,15 +63,18 @@ public class Admin {
                         Doctor d1 = new Doctor();
                         dat.docData.add(d1);
                         System.out.println("\n\nDetails you entered: ");
-                        d1.displayEmployee();
                         d1.displayDoctor();
                         break;
 
-                    case 2:
-                        System.out.println("Enter Doctor ID: ");
-
                     case 3:
+                        System.out.println("Enter Doctor ID: ");
+                        int searchID = scan.nextInt();
+                        dat.searchDoctor(searchID);
+                        break;
+
+                    case 4:
                         dat.displayAllDoctors();
+                        break;
 
                     default:
                         System.out.println("Enter Valid Choice.");
@@ -77,7 +86,8 @@ public class Admin {
                 System.out.println("\nEnter your choice : ");
                 System.out.println("1. Add Nurse.");
                 System.out.println("2. Remove Nurse.");
-                System.out.println("3. View All Nurses");
+                System.out.println("3. Search Nurse");
+                System.out.println("4. View All Nurses");
 
                 int choice3 = scan.nextInt();
                 switch (choice3) {
@@ -89,11 +99,15 @@ public class Admin {
                         n1.displayNurse();
                         break;
 
-                    case 2:
-                        System.out.println("Enter Nurse ID: ");
-
                     case 3:
+                        System.out.println("Enter Nurse ID: ");
+                        int searchID = scan.nextInt();
+                        dat.searchNurse(searchID);
+                        break;
+
+                    case 4:
                         dat.displayAllNurses();
+                        break;
 
                     default:
                         System.out.println("Enter Valid Choice.");

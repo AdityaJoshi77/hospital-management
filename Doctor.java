@@ -37,6 +37,11 @@ public class Doctor extends Employee {
         this.specialization = specialization;
     }
 
+    public int get_Id()
+    {
+        return this.DoctorID;
+    }
+
     public void displayDoctor() 
     {
         this.displayEmployee();

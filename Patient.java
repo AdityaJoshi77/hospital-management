@@ -50,6 +50,11 @@
             this.Age = Age;
         }
 
+        public int get_Id()
+        {
+            return this.PatientID;
+        }
+
         public void displayPatient()
         {
             System.out.println("Patient ID: "+ PatientID);

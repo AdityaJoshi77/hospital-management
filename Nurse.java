@@ -35,6 +35,11 @@ public class Nurse extends Employee {
         this.salary = salary;
     }
 
+    public int get_Id()
+    {
+        return this.NurseID;
+    }
+
     public void displayNurse() 
     {
         this.displayEmployee();
