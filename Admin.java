@@ -22,7 +22,8 @@ public class Admin {
                 System.out.println("\nEnter your choice : ");
                 System.out.println("1. Add Patient.");
                 System.out.println("2. Remove Patient.");
-                System.out.println("3. Print Medical Report Of Patient.");
+                System.out.println("3. View All Patients");
+                System.out.println("4. Print Medical Report Of Patient.");
                 int choice1 = scan.nextInt();
                 switch (choice1) {
                     case 1:
@@ -34,6 +35,9 @@ public class Admin {
 
                     case 2:
                         System.out.println("Enter Patient ID: ");
+                    
+                    case 3:
+                        dat.displayAllPatients();
 
                     default:
                         System.out.println("Enter Valid Choice.");
@@ -45,6 +49,8 @@ public class Admin {
                 System.out.println("\nEnter your choice : ");
                 System.out.println("1. Add Doctor.");
                 System.out.println("2. Remove Doctor.");
+                System.out.println("3. View All Doctors");
+
                 int choice2 = scan.nextInt();
                 switch (choice2) {
                     case 1:
@@ -58,6 +64,9 @@ public class Admin {
                     case 2:
                         System.out.println("Enter Doctor ID: ");
 
+                    case 3:
+                        dat.displayAllDoctors();
+
                     default:
                         System.out.println("Enter Valid Choice.");
                         break;
@@ -68,6 +77,8 @@ public class Admin {
                 System.out.println("\nEnter your choice : ");
                 System.out.println("1. Add Nurse.");
                 System.out.println("2. Remove Nurse.");
+                System.out.println("3. View All Nurses");
+
                 int choice3 = scan.nextInt();
                 switch (choice3) {
                     case 1:
@@ -80,6 +91,9 @@ public class Admin {
 
                     case 2:
                         System.out.println("Enter Nurse ID: ");
+
+                    case 3:
+                        dat.displayAllNurses();
 
                     default:
                         System.out.println("Enter Valid Choice.");
