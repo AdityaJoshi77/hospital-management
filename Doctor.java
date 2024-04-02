@@ -4,19 +4,16 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class Doctor extends Employee {
 
     static int DoctorID_Gen = 100;
-    ArrayList<Integer>PatientsAssignedToDoc = new ArrayList<>();
+    ArrayList<Integer> PatientsAssignedToDoc = new ArrayList<>();
     private int DoctorID;
     String specialization;
 
-     int numberOfPatientsAssigned = 0;
+    int numberOfPatientsAssigned = 0;
 
-      
-    public Doctor() throws IOException
-    {
+    public Doctor() throws IOException {
         DoctorID = ++DoctorID_Gen;
         BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
         // String name = bfr.readLine();
@@ -30,8 +27,20 @@ public class Doctor extends Employee {
         this.type = "Doctor";
         numberOfPatientsAssigned++;
     }
-    public void displayDoctor()
-    {
+
+    // Dummy data constructor
+    public Doctor(int doctorID, String employeeName, int employeeID, String department, String jobTitle, int salary,
+            String specialization) throws IOException {
+        this.DoctorID = doctorID;
+        this.employeeName = employeeName;
+        this.employeeID = employeeID;
+        this.department = department;
+        this.jobTitle = jobTitle;
+        this.salary = salary;
+        this.specialization = specialization;
+    }
+
+    public void displayDoctor() {
         System.out.println("Specialization: " + specialization);
         System.out.println("Number of Patients Assigned: " + numberOfPatientsAssigned);
     }
