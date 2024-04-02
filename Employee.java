@@ -39,6 +39,7 @@ public class Employee {
         salary = scan.nextInt();
     }
 
+    
     public void displayEmployee()
     {
         System.out.println("FULL NAME: " + employeeName);
