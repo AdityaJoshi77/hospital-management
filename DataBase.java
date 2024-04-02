@@ -30,9 +30,7 @@ public class DataBase {
         patData.add(patient5);
 
         // // Adding dummy data for doctors
-        System.out.println("Entering the details of doctor1");
         Doctor doctor1 = new Doctor(101, "Dr. Rajesh Kumar", 1001, "Cardiology", "Cardiologist", 150000, "Heart");
-        
         docData.add(doctor1);
 
         Doctor doctor2 = new Doctor(102, "Dr. Priya Patel", 1002, "Orthopedics", "Orthopedic Surgeon", 140000,
