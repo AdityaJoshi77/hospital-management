@@ -28,16 +28,16 @@ public class Nurse extends Employee {
 
     // Dummy data constructor
     public Nurse(int nurseID, String employeeName, int employeeID, String department, String jobTitle, int salary)
-            throws IOException {
+            throws IOException 
+    {
+        super(employeeName, employeeID, department, jobTitle, salary, "Nurse");
         this.NurseID = nurseID;
-        this.employeeName = employeeName;
-        this.employeeID = employeeID;
-        this.department = department;
-        this.jobTitle = jobTitle;
         this.salary = salary;
     }
 
-    public void displayNurse() {
+    public void displayNurse() 
+    {
+        this.displayEmployee();
         System.out.println("Number of Patients Assigned: " + numberOfPatientsAssigned);
     }
 }

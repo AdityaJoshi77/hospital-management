@@ -30,17 +30,16 @@ public class Doctor extends Employee {
 
     // Dummy data constructor
     public Doctor(int doctorID, String employeeName, int employeeID, String department, String jobTitle, int salary,
-            String specialization) throws IOException {
+            String specialization) throws IOException 
+    {
+        super(employeeName, employeeID, department, jobTitle, salary, "Doctor");
         this.DoctorID = doctorID;
-        this.employeeName = employeeName;
-        this.employeeID = employeeID;
-        this.department = department;
-        this.jobTitle = jobTitle;
-        this.salary = salary;
         this.specialization = specialization;
     }
 
-    public void displayDoctor() {
+    public void displayDoctor() 
+    {
+        this.displayEmployee();
         System.out.println("Specialization: " + specialization);
         System.out.println("Number of Patients Assigned: " + numberOfPatientsAssigned);
     }

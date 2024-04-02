@@ -60,10 +60,27 @@ public class DataBase {
     {
 
         DataBase datab = new DataBase();
+        System.out.println("\n------------------Patients Data----------------------");
         for(Patient pat : datab.patData)
         {
+            System.out.println("---------------------------------------------------\n");
             pat.displayPatient();
         }
+
+        System.out.println("\n------------------Doctors Data----------------------");
+        for(Doctor doc : datab.docData)
+        {
+            System.out.println("---------------------------------------------------\n");
+            doc.displayDoctor();
+        }
+
+        System.out.println("\n------------------Nurses Data----------------------");
+        for(Nurse nur : datab.nurData)
+        {
+            System.out.println("---------------------------------------------------\n");
+            nur.displayNurse();
+        }
+
     }
 
     public void addPatient(Patient Pat) {
