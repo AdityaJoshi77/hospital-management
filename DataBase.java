@@ -1,6 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
-
+import java.util.Iterator;
 public class DataBase {
     ArrayList<Patient> patData = new ArrayList<>();
     ArrayList<Doctor> docData = new ArrayList<>();
@@ -123,7 +123,7 @@ public class DataBase {
 
     public void displayAllNurses()
     {
-        System.out.println("\n------------------Doctors Data----------------------");
+        System.out.println("\n------------------Nurse Data----------------------");
         for(Nurse nur : this.nurData)
         {
             System.out.println("---------------------------------------------------\n");
@@ -143,16 +143,45 @@ public class DataBase {
         nurData.add(Nur);
     }
 
-    public void removePatient(Patient Pat) {
-        patData.remove(Pat);
+    public void removePatient(int pat_ID) {
+        Iterator<Patient> iterator = patData.iterator();
+        while (iterator.hasNext()) {
+            Patient pat = iterator.next();
+            if (pat.get_Id() == pat_ID) {
+                iterator.remove();
+                System.out.println("Patient Removed.\n");
+                // If you want to remove only the first occurrence of the patient ID
+                return;
+            }
+        }
+        System.out.println("Patient you wanted to remove was not found.\n");
+    }
+    public void removeDoctor(int doc_ID) {
+        Iterator<Doctor> iterator = docData.iterator();
+        while (iterator.hasNext()) {
+            Doctor doc = iterator.next();
+            if (doc.get_Id() == doc_ID) {
+                iterator.remove();
+                System.out.println("Doctor Removed.\n");
+                // If you want to remove only the first occurrence of the doctor ID
+                return;
+            }
+        }
+        System.out.println("Doctor you wanted to remove was not found.\n");
     }
 
-    public void removeDoctor(Doctor Doc) {
-        docData.remove(Doc);
-    }
-
-    public void removeNurse(Nurse Nur) {
-        nurData.remove(Nur);
+    public void removeNurse(int nur_ID) {
+        Iterator<Nurse> iterator = nurData.iterator();
+        while (iterator.hasNext()) {
+            Nurse nur = iterator.next();
+            if (nur.get_Id() == nur_ID) {
+                iterator.remove();
+                System.out.println("Nurse Removed.\n");
+                // If you want to remove only the first occurrence of the nurse ID
+                return;
+            }
+        }
+        System.out.println("Nurse you wanted to remove was not found.\n");
     }
 
 }

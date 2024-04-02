@@ -40,11 +40,17 @@ public class Admin {
                             p1.displayPatient();
                             break;
 
+                        case 2:
+                            {System.out.println("Enter the ID of the Patient : ");
+                            int searchID = scan.nextInt();
+                            dat.removePatient(searchID);
+                            break;}
+
                         case 3:
-                            System.out.println("Enter Patient ID: ");
+                            {System.out.println("Enter Patient ID: ");
                             int searchID = scan.nextInt();
                             dat.searchPatient(searchID);
-                            break;
+                            break;}
                         
                         case 4:
                             dat.displayAllPatients();
@@ -74,6 +80,11 @@ public class Admin {
                             System.out.println("\n\nDetails you entered: ");
                             d1.displayDoctor();
                             break;
+                        case 2:
+                        {System.out.println("Enter the ID of the Doctor : ");
+                            int searchID = scan.nextInt();
+                            dat.removeDoctor(searchID);
+                            break;}
 
                         case 3:
                             System.out.println("Enter Doctor ID: ");
@@ -109,7 +120,11 @@ public class Admin {
                             n1.displayEmployee();
                             n1.displayNurse();
                             break;
-
+                        case 2:
+                        {System.out.println("Enter the ID of the Nurse : ");
+                            int searchID = scan.nextInt();
+                            dat.removeNurse(searchID);
+                            break;}
                         case 3:
                             System.out.println("Enter Nurse ID: ");
                             int searchID = scan.nextInt();
