@@ -27,10 +27,10 @@ public class Nurse extends Employee {
     }
 
     // Dummy data constructor
-    public Nurse(int nurseID, String employeeName, int employeeID, String department, String jobTitle, int salary)
+    public Nurse(int nurseID, String employeeName, int employeeID,int salary)
             throws IOException 
     {
-        super(employeeName, employeeID, department, jobTitle, salary, "Nurse");
+        super(employeeName, employeeID, salary, "Nurse");
         this.NurseID = nurseID;
         this.salary = salary;
     }

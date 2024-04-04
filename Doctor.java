@@ -4,37 +4,75 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Doctor extends Employee {
-
+public class Doctor extends Employee 
+{
+    String department;
+    String jobTitle;
     static int DoctorID_Gen = 100;
     ArrayList<Integer> PatientsAssignedToDoc = new ArrayList<>();
     private int DoctorID;
-    String specialization;
+    String[] DocTypeDept = {"Rheumatology","Cardiology","Pediatric","ENT","Dentist"};
+    String[] DocTypeJobTitle = {"Rheumatologist","Cardiologist","Pediatrician","ENT Specialist","Dentist"};
 
     int numberOfPatientsAssigned = 0;
 
-    public Doctor() throws IOException {
+    public Doctor() throws IOException 
+    {
         DoctorID = ++DoctorID_Gen;
+        Scanner scan = new Scanner(System.in);
         BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
-        // String name = bfr.readLine();
-        // System.out.println(name);
+        System.out.println("Doctor's Specialization:");
+        System.out.println("1. Rheumatology");
+        System.out.println("2. Cardiology");
+        System.out.println("3. Pediatrician");
+        System.out.println("4. ENT");
+        System.out.println("5. Dentist");
 
-        // Scanner scan = new Scanner(System.in);
-
-        System.out.print("Doctor's Specialization: ");
+        whileloop: while (true) 
+        {
+            int n = scan.nextInt();
+            switch (n) 
+            {
+                case 1:
+                    department  = DocTypeDept[0];
+                    jobTitle = DocTypeJobTitle[0];
+                    break whileloop;
+                case 2:
+                department  = DocTypeDept[1];
+                jobTitle = DocTypeJobTitle[1];
+                    break whileloop;  
+                case 3:
+                department  = DocTypeDept[2];
+                jobTitle = DocTypeJobTitle[2];
+                    break whileloop;  
+                case 4:
+                department  = DocTypeDept[3];
+                jobTitle = DocTypeJobTitle[3];
+                    break whileloop;  
+                case 5:
+                department  = DocTypeDept[4];
+                jobTitle = DocTypeJobTitle[4];
+                    break whileloop;
+                default:
+                System.out.println("Please select a valid option");
+                    break;
+            }    
+        }
+    
         // this.specialization = scan.nextLine();
-        specialization = bfr.readLine();
         this.type = "Doctor";
-        numberOfPatientsAssigned++;
+        // numberOfPatientsAssigned++;
     }
 
+    
+
     // Dummy data constructor
-    public Doctor(int doctorID, String employeeName, int employeeID, String department, String jobTitle, int salary,
-            String specialization) throws IOException 
+    public Doctor(int doctorID, String employeeName, int employeeID, String department, String jobTitle, int salary) throws IOException 
     {
-        super(employeeName, employeeID, department, jobTitle, salary, "Doctor");
+        super(employeeName, employeeID, salary, "Doctor");
+        this.department = department;
+        this.jobTitle = jobTitle;
         this.DoctorID = doctorID;
-        this.specialization = specialization;
     }
 
     public int get_Id()
@@ -45,7 +83,8 @@ public class Doctor extends Employee {
     public void displayDoctor() 
     {
         this.displayEmployee();
-        System.out.println("Specialization: " + specialization);
+        System.out.println("Department: "+this.department);
+        System.out.println("Job Title: "+this.jobTitle);
         System.out.println("Number of Patients Assigned: " + numberOfPatientsAssigned);
     }
 }

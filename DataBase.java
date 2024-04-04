@@ -30,24 +30,24 @@ public class DataBase {
         patData.add(patient5);
 
         // // Adding dummy data for doctors
-        Doctor doctor1 = new Doctor(101, "Dr. Rajesh Kumar", 1001, "Cardiology", "Cardiologist", 150000, "Heart");
+        Doctor doctor1 = new Doctor(101, "Dr. Rajesh Kumar", 1001, "Cardiology", "Cardiologist", 150000);
         docData.add(doctor1);
 
-        Doctor doctor2 = new Doctor(102, "Dr. Priya Patel", 1002, "Orthopedics", "Orthopedic Surgeon", 140000,
-                "Bone Fractures");
+        Doctor doctor2 = new Doctor(102, "Dr. Priya Patel", 1002, "Orthopedics", "Orthopedic Surgeon", 140000
+            );
         docData.add(doctor2);
 
-        Doctor doctor3 = new Doctor(103, "Dr. Amit Sharma", 1003, "Gynecology", "Gynecologist", 130000, "Obstetrics");
+        Doctor doctor3 = new Doctor(103, "Dr. Amit Sharma", 1003, "Gynecology", "Gynecologist", 130000);
         docData.add(doctor3);
 
         // Adding dummy data for nurses
-        Nurse nurse1 = new Nurse(201, "Nurse Sunita Verma", 2001, "ICU", "Registered Nurse", 80000);
+        Nurse nurse1 = new Nurse(201, "Nurse Sunita Verma", 2001, 80000);
         nurData.add(nurse1);
 
-        Nurse nurse2 = new Nurse(202, "Nurse Sanjay Mishra", 2002, "Pediatrics", "Pediatric Nurse", 75000);
+        Nurse nurse2 = new Nurse(202, "Nurse Sanjay Mishra", 2002, 75000);
         nurData.add(nurse2);
 
-        Nurse nurse3 = new Nurse(203, "Nurse Meera Patel", 2003, "Emergency", "Emergency Nurse", 85000);
+        Nurse nurse3 = new Nurse(203, "Nurse Meera Patel", 2003,  85000);
         nurData.add(nurse3);
 
         // -------------------------------------------------------------------------------------------

@@ -6,8 +6,6 @@ import java.util.Scanner;
 public class Employee {
     String employeeName;
     int employeeID;
-    String department;
-    String jobTitle;
     int salary;
     String type;
 
@@ -22,24 +20,14 @@ public class Employee {
         System.out.print("Employee ID: ");
         employeeID = scan.nextInt();
 
-        System.out.print("Department: ");
-        // department = scan.nextLine();
-        department = bfr.readLine();
-
-        System.out.print("Job Title: ");
-        // jobTitle = scan.nextLine();
-        jobTitle = bfr.readLine();
-
         System.out.print("Salary: ");
         salary = scan.nextInt();
     }
 
     // dummy data constructor
-    public Employee(String employeeName, int employeeID, String department, String jobTitle, int salary, String type) {
+    public Employee(String employeeName, int employeeID, int salary, String type) {
         this.employeeName = employeeName;
         this.employeeID = employeeID;
-        this.department = department;
-        this.jobTitle = jobTitle;
         this.salary = salary;
         this.type = type;
     }
@@ -47,8 +35,6 @@ public class Employee {
     public void displayEmployee() {
         System.out.println("FULL NAME: " + employeeName);
         System.out.println("Employee ID: " + employeeID);
-        System.out.println("Department: " + department);
-        System.out.println("Job Title: " + jobTitle);
         System.out.println("Salary: " + salary);
     }
 }
