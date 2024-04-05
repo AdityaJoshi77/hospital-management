@@ -212,4 +212,18 @@ public class DataBase {
         System.out.println("Nurse Alloted");
         return allotID;
     }
+
+    
+    public Patient getPatient(int patID){
+        Iterator<Patient> iterator =this.patData.iterator();
+        while (iterator.hasNext()) 
+        {
+            Patient pat  = iterator.next();
+            if (pat.get_Id() == patID) 
+            {
+                return pat;
+            }
+        }
+        return null;
+    }
 }

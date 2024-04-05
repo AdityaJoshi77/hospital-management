@@ -55,7 +55,15 @@ public class Admin {
                         case 4:
                             dat.displayAllPatients();
                             break;
-
+                        
+                        case 5:
+                        {
+                            System.out.println("Enter ID of the Patient for the Medical Record:");
+                            int enterID = scan.nextInt();
+                            Patient foundPatient = dat.getPatient(enterID);
+                            foundPatient.getReport(dat);
+                            break;
+                        }
                         default:
                             System.out.println("Enter Valid Choice.");
                             break;

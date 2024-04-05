@@ -115,6 +115,36 @@ import javax.print.Doc;
             this.allottedNurseID = dat.assign_Nurse();
         }
 
+        public void getReport(DataBase dat)
+        {
+            this.displayPatient();
+            // now displaying details of the doctor alloted
+            Iterator<Doctor> iterator = dat.docData.iterator();
+            while (iterator.hasNext()) 
+            {
+            Doctor doc  = iterator.next();
+            if (doc.get_Id() == this.allottedDoctorID) 
+            {
+                System.out.println("\n\nDoctor Alloted: ");
+                doc.displayDoctor();
+                break;
+            }
+            }
+            // now displaying details of the nurse alloted
+            Iterator<Nurse> iterator2 = dat.nurData.iterator();
+            while (iterator2.hasNext()) 
+            {
+            Nurse nur  = iterator2.next();
+            if (nur.get_Id() == this.allottedNurseID) 
+            {
+                System.out.println("\n\nNurse Alloted: ");
+                nur.displayNurse();
+                break;
+            }
+            }
+        }
+
+
   
         public void displayPatient()
         {
