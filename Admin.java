@@ -34,7 +34,7 @@ public class Admin {
                     switch (choice1) 
                     {
                         case 1:
-                            Patient p1 = new Patient();
+                            Patient p1 = new Patient(dat);
                             dat.patData.add(p1);
                             System.out.println("Details you entered: ");
                             p1.displayPatient();
@@ -75,11 +75,12 @@ public class Admin {
                     switch (choice2) 
                     {
                         case 1:
-                            Doctor d1 = new Doctor();
+                            {Doctor d1 = new Doctor();
                             dat.docData.add(d1);
-                            System.out.println("\n\nDetails you entered: ");
-                            d1.displayDoctor();
-                            break;
+                            System.out.println("Doctor added successfully...");
+                            // System.out.println("\n\nDetails you entered: ");
+                            // d1.displayDoctor();
+                            break;}
                         case 2:
                         {System.out.println("Enter the ID of the Doctor : ");
                             int searchID = scan.nextInt();

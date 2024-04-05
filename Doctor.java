@@ -16,12 +16,13 @@ public class Doctor extends Employee
 
     int numberOfPatientsAssigned = 0;
 
+    // Default Constructor
     public Doctor() throws IOException 
     {
         DoctorID = ++DoctorID_Gen;
         Scanner scan = new Scanner(System.in);
         BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Doctor's Specialization:");
+        System.out.println(" Select Doctor's Specialization:");
         System.out.println("1. Rheumatology");
         System.out.println("2. Cardiology");
         System.out.println("3. Pediatrician");
@@ -65,7 +66,7 @@ public class Doctor extends Employee
     }
 
     
-
+    // Parameterized Constructor
     // Dummy data constructor
     public Doctor(int doctorID, String employeeName, int employeeID, String department, String jobTitle, int salary) throws IOException 
     {

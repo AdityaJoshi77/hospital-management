@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 public class DataBase {
+    static int nurseTurn;
     ArrayList<Patient> patData = new ArrayList<>();
     ArrayList<Doctor> docData = new ArrayList<>();
     ArrayList<Nurse> nurData = new ArrayList<>();
@@ -11,34 +12,40 @@ public class DataBase {
         // -------------------------------------------------------------------------------------------
 
         // Adding dummy data for patients
-        Patient patient1 = new Patient(101, "Anjali Gupta", "1234567890", "123, Main Street, City", "O+", "Female", 35);
+        Patient patient1 = new Patient(101, "Anjali Gupta", "1234567890", "123, Main Street, City", "O+", "Female", 35,"Cardiology",101,201);
         patData.add(patient1);
 
-        Patient patient2 = new Patient(102, "Amit Singh", "9876543210", "456, Second Avenue, Town", "A-", "Male", 45);
+        Patient patient2 = new Patient(102, "Amit Singh", "9876543210", "456, Second Avenue, Town", "A-", "Male", 45,"Rheumatology",102,202);
         patData.add(patient2);
 
         Patient patient3 = new Patient(103, "Priya Sharma", "9998887776", "789, Third Road, Village", "B+", "Female",
-                25);
+                25,"Pediatry",103,203);
         patData.add(patient3);
 
         Patient patient4 = new Patient(104, "Rahul Kapoor", "8887776665", "101, Fourth Lane, Countryside", "AB-",
-                "Male", 55);
+                "Male", 55,"ENT",104,204);
         patData.add(patient4);
 
         Patient patient5 = new Patient(105, "Neha Patel", "6665554443", "678, Fifth Street, Suburb", "O-", "Female",
-                30);
+                30,"Dental",105,205);
         patData.add(patient5);
 
         // // Adding dummy data for doctors
         Doctor doctor1 = new Doctor(101, "Dr. Rajesh Kumar", 1001, "Cardiology", "Cardiologist", 150000);
         docData.add(doctor1);
 
-        Doctor doctor2 = new Doctor(102, "Dr. Priya Patel", 1002, "Orthopedics", "Orthopedic Surgeon", 140000
+        Doctor doctor2 = new Doctor(102, "Dr. Priya Patel", 1002, "Rheumatology", "Rheumatologist", 140000
             );
         docData.add(doctor2);
 
-        Doctor doctor3 = new Doctor(103, "Dr. Amit Sharma", 1003, "Gynecology", "Gynecologist", 130000);
+        Doctor doctor3 = new Doctor(103, "Dr. Amit Sharma", 1003, "Pediatry", "Pediatrician", 130000);
         docData.add(doctor3);
+
+        Doctor doctor4 = new Doctor(104, "Dr. Naman Gehlot", 1004, "ENT", "ENT Specialist", 130000);
+        docData.add(doctor4);
+
+        Doctor doctor5 = new Doctor(105, "Dr. Vaibhav Sehgal ", 1005, "Dental", "Dentist", 130000);
+        docData.add(doctor5);
 
         // Adding dummy data for nurses
         Nurse nurse1 = new Nurse(201, "Nurse Sunita Verma", 2001, 80000);
@@ -50,15 +57,13 @@ public class DataBase {
         Nurse nurse3 = new Nurse(203, "Nurse Meera Patel", 2003,  85000);
         nurData.add(nurse3);
 
+        Nurse nurse4 = new Nurse(204, "Nurse Reshma Ahuja", 2004,  86000);
+        nurData.add(nurse4);
+
+        Nurse nurse5 = new Nurse(205, "Nurse Ekta Kapoor", 2005,  83500);
+        nurData.add(nurse5);
+
         // -------------------------------------------------------------------------------------------
-
-    }
-
-    public static void main(String[] args) throws IOException
-    {
-
-        DataBase datab = new DataBase();
-        
 
     }
 
@@ -184,4 +189,27 @@ public class DataBase {
         System.out.println("Nurse you wanted to remove was not found.\n");
     }
 
+    public int assign_Doctor(String dept)
+    {
+        Iterator<Doctor> iterator = this.docData.iterator();
+        while (iterator.hasNext()) 
+        {
+           Doctor doc  = iterator.next();
+           if (dept.equals(doc.department)) 
+           {
+            System.out.println("Doctor assigned.");
+            return doc.get_Id();
+           }
+        }
+        System.out.println("Doctor could not be assigned.");
+    return -1;
+    }
+
+    public int assign_Nurse()
+    {
+        int allotID =  this.nurData.get(nurseTurn % this.nurData.size()).get_Id();
+        nurseTurn++;
+        System.out.println("Nurse Alloted");
+        return allotID;
+    }
 }
