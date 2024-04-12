@@ -3,7 +3,7 @@
 import javax.print.Doc;
     public class Patient
     {
-        static int PatientID_Gen = 100;
+        static int PatientID_Gen = 105;
         private int PatientID;
         private int allottedDoctorID;
         private int allottedNurseID;
@@ -12,7 +12,7 @@ import javax.print.Doc;
         private String Address;
         private String BloodGroup;
         private String Gender;
-        String[] DepartmentConcernedList = {"Rheumatology","Cardiology","Pediatric","ENT","Dentist"};
+        String[] DepartmentConcernedList = {"Rheumatology","Cardiology","Pediatry","ENT","Dentist"};
         private String DepartmentConcerned;
         private int Age;    
 
@@ -79,9 +79,7 @@ import javax.print.Doc;
                 Address = scan.nextLine();
 
             System.out.print("AGE: ");
-                Age = scan.nextInt();
-            
-            
+                Age = scan.nextInt();     
         }
 
 
@@ -107,47 +105,56 @@ import javax.print.Doc;
 
         public void allot_Doctor(DataBase dat)
         {
-            this.allottedDoctorID = dat.assign_Doctor(this.DepartmentConcerned);
+            this.allottedDoctorID = dat.assign_Doctor(this.DepartmentConcerned, this.get_Id());
+        }
+
+        public int getAllotedDoctor()
+        {
+            return this.allottedDoctorID;
         }
 
         public void allot_Nurse(DataBase dat)
         {
-            this.allottedNurseID = dat.assign_Nurse();
+            this.allottedNurseID = dat.assign_Nurse(this.get_Id());
         }
 
-        public void getReport(DataBase dat)
+        public int getAllotedNurse()
+        {
+            return this.allottedNurseID;
+        }
+
+        public void getPatientReport(DataBase dat)
         {
             this.displayPatient();
             // now displaying details of the doctor alloted
             Iterator<Doctor> iterator = dat.docData.iterator();
             while (iterator.hasNext()) 
             {
-            Doctor doc  = iterator.next();
-            if (doc.get_Id() == this.allottedDoctorID) 
-            {
-                System.out.println("\n\nDoctor Alloted: ");
-                doc.displayDoctor();
-                break;
-            }
+                Doctor doc  = iterator.next();
+                if (doc.get_Id() == this.allottedDoctorID) 
+                {
+                    System.out.println("\nDoctor Alloted: ");
+                    doc.displayDoctor(1);
+                    break;
+                }
             }
             // now displaying details of the nurse alloted
             Iterator<Nurse> iterator2 = dat.nurData.iterator();
             while (iterator2.hasNext()) 
             {
             Nurse nur  = iterator2.next();
-            if (nur.get_Id() == this.allottedNurseID) 
-            {
-                System.out.println("\n\nNurse Alloted: ");
-                nur.displayNurse();
-                break;
-            }
+                if (nur.get_Id() == this.allottedNurseID) 
+                {
+                    System.out.println("\nNurse Alloted: ");
+                    nur.displayNurse(1);
+                    break;
+                }
             }
         }
 
-
-  
         public void displayPatient()
         {
+            System.out.println("\n****************************************");
             System.out.println("Patient ID: "+ PatientID);
             System.out.println("FULL NAME: " + PatientName);
             System.out.println("CONTACT NUMBER: " + Contact_No);
@@ -158,6 +165,29 @@ import javax.print.Doc;
             System.out.println("Consulting Physician: " + DepartmentConcerned);
             System.out.println("Alloted Doctor ID: "+ allottedDoctorID);
             System.out.println("Alloted Nurse ID: "+ allottedNurseID);
-
         }
     }
+
+
+            //     // increasing number of patients assigned to respective doctor
+        //     Iterator<Doctor> iterator = dat.docData.iterator();
+        //     while (iterator.hasNext()) 
+        //     {
+        //     Doctor doc  = iterator.next();
+        //     if (doc.get_Id() == this.allottedDoctorID) 
+        //     {
+        //         doc.setNumberOfPatientsAssigned(1);
+        //         break;
+        //     }
+        //     }
+        //     // increasing number of patients assigned to respective nurse
+        //     Iterator<Nurse> iterator2 = dat.nurData.iterator();
+        //     while (iterator2.hasNext()) 
+        //     {
+        //     Nurse nur  = iterator2.next();
+        //         if (nur.get_Id() == this.allottedNurseID) 
+        //         {
+        //             nur.setNumberOfPatientsAssigned(1);
+        //             break;
+        //         }
+        //     }

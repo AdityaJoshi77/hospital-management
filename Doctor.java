@@ -68,9 +68,9 @@ public class Doctor extends Employee
     
     // Parameterized Constructor
     // Dummy data constructor
-    public Doctor(int doctorID, String employeeName, int employeeID, String department, String jobTitle, int salary) throws IOException 
+    public Doctor(int doctorID, String employeeName, String department, String jobTitle, int salary) throws IOException 
     {
-        super(employeeName, employeeID, salary, "Doctor");
+        super(employeeName,salary, "Doctor");
         this.department = department;
         this.jobTitle = jobTitle;
         this.DoctorID = doctorID;
@@ -83,9 +83,35 @@ public class Doctor extends Employee
 
     public void displayDoctor() 
     {
-        this.displayEmployee();
+        this.displayEmployee(/*Dummy Val*/);
         System.out.println("Department: "+this.department);
         System.out.println("Job Title: "+this.jobTitle);
         System.out.println("Number of Patients Assigned: " + numberOfPatientsAssigned);
+        this.displayPatientsAlloted();
+    }
+
+    public void displayDoctor(int dummy) 
+    {
+        this.displayEmployee(1/*Dummy Val*/);
+        System.out.println("Department: "+this.department);
+        System.out.println("Job Title: "+this.jobTitle);
+        // System.out.println("Number of Patients Assigned: " + numberOfPatientsAssigned);
+    }
+
+    public void displayPatientsAlloted()
+    {
+        System.out.print("ID of patients allotted: ");
+        for (Integer patID : this.PatientsAssignedToDoc) {
+            System.out.print(patID + ", ");
+        }
+        System.out.println();
+    }
+
+    public void setNumberOfPatientsAssigned(int incDec) 
+    {
+        if (incDec == 1)
+            this.numberOfPatientsAssigned++;            
+        else
+            this.numberOfPatientsAssigned--;
     }
 }

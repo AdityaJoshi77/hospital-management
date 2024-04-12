@@ -9,6 +9,7 @@ public class Admin {
     public static void main(String[] args) throws IOException 
     {
         DataBase dat = new DataBase();
+        dat.initiateDatabase();
         Scanner scan = new Scanner(System.in);
         while(true)
         {
@@ -61,7 +62,7 @@ public class Admin {
                             System.out.println("Enter ID of the Patient for the Medical Record:");
                             int enterID = scan.nextInt();
                             Patient foundPatient = dat.getPatient(enterID);
-                            foundPatient.getReport(dat);
+                            foundPatient.getPatientReport(dat);
                             break;
                         }
                         default:

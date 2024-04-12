@@ -12,8 +12,12 @@ public class Nurse extends Employee {
 
     int numberOfPatientsAssigned = 0;
 
-    void setNumberOfPatientsAssigned() {
-        numberOfPatientsAssigned++;
+    void setNumberOfPatientsAssigned(int incDec) 
+    {
+        if (incDec == 1)
+            this.numberOfPatientsAssigned++;            
+        else
+            this.numberOfPatientsAssigned--;
     }
 
     public int getNumberOfPatientsAssigned() {
@@ -27,10 +31,10 @@ public class Nurse extends Employee {
     }
 
     // Dummy data constructor
-    public Nurse(int nurseID, String employeeName, int employeeID,int salary)
+    public Nurse(int nurseID, String employeeName,int salary)
             throws IOException 
     {
-        super(employeeName, employeeID, salary, "Nurse");
+        super(employeeName, salary, "Nurse");
         this.NurseID = nurseID;
         this.salary = salary;
     }
@@ -44,5 +48,23 @@ public class Nurse extends Employee {
     {
         this.displayEmployee();
         System.out.println("Number of Patients Assigned: " + numberOfPatientsAssigned);
+        this.displayPatientsAlloted();
+    }
+
+    public void displayNurse(int dummy) 
+    {
+        // For Patient Record
+        this.displayEmployee(1 /*dummy val*/);
+        // System.out.println("Number of Patients Assigned: " + numberOfPatientsAssigned);
+    }
+
+    
+    public void displayPatientsAlloted()
+    {
+        System.out.print("ID of patients allotted: ");
+        for (Integer patID : this.PatientsAssignedToNur) {
+            System.out.print(patID + ", ");
+        }
+        System.out.println();
     }
 }

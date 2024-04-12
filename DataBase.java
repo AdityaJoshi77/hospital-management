@@ -31,40 +31,70 @@ public class DataBase {
         patData.add(patient5);
 
         // // Adding dummy data for doctors
-        Doctor doctor1 = new Doctor(101, "Dr. Rajesh Kumar", 1001, "Cardiology", "Cardiologist", 150000);
+        Doctor doctor1 = new Doctor(101, "Dr. Rajesh Kumar", "Cardiology", "Cardiologist", 150000);
         docData.add(doctor1);
 
-        Doctor doctor2 = new Doctor(102, "Dr. Priya Patel", 1002, "Rheumatology", "Rheumatologist", 140000
-            );
+        Doctor doctor2 = new Doctor(102, "Dr. Priya Patel", "Rheumatology", "Rheumatologist", 140000);
         docData.add(doctor2);
 
-        Doctor doctor3 = new Doctor(103, "Dr. Amit Sharma", 1003, "Pediatry", "Pediatrician", 130000);
+        Doctor doctor3 = new Doctor(103, "Dr. Amit Sharma", "Pediatry", "Pediatrician", 130000);
         docData.add(doctor3);
 
-        Doctor doctor4 = new Doctor(104, "Dr. Naman Gehlot", 1004, "ENT", "ENT Specialist", 130000);
+        Doctor doctor4 = new Doctor(104, "Dr. Naman Gehlot", "ENT", "ENT Specialist", 130000);
         docData.add(doctor4);
 
-        Doctor doctor5 = new Doctor(105, "Dr. Vaibhav Sehgal ", 1005, "Dental", "Dentist", 130000);
+        Doctor doctor5 = new Doctor(105, "Dr. Vaibhav Sehgal ", "Dental", "Dentist", 130000);
         docData.add(doctor5);
 
         // Adding dummy data for nurses
-        Nurse nurse1 = new Nurse(201, "Nurse Sunita Verma", 2001, 80000);
+        Nurse nurse1 = new Nurse(201, "Nurse Sunita Verma", 80000);
         nurData.add(nurse1);
 
-        Nurse nurse2 = new Nurse(202, "Nurse Sanjay Mishra", 2002, 75000);
+        Nurse nurse2 = new Nurse(202, "Nurse Sanjay Mishra", 75000);
         nurData.add(nurse2);
 
-        Nurse nurse3 = new Nurse(203, "Nurse Meera Patel", 2003,  85000);
+        Nurse nurse3 = new Nurse(203, "Nurse Meera Patel",  85000);
         nurData.add(nurse3);
 
-        Nurse nurse4 = new Nurse(204, "Nurse Reshma Ahuja", 2004,  86000);
+        Nurse nurse4 = new Nurse(204, "Nurse Reshma Ahuja",  86000);
         nurData.add(nurse4);
 
-        Nurse nurse5 = new Nurse(205, "Nurse Ekta Kapoor", 2005,  83500);
+        Nurse nurse5 = new Nurse(205, "Nurse Ekta Kapoor",  83500);
         nurData.add(nurse5);
+        // ------------------------------------------------------------------------------------------
+    }
 
-        // -------------------------------------------------------------------------------------------
+    public void initiateDatabase()
+    {
+        Iterator<Patient> pat_Iter = patData.iterator();
 
+        while(pat_Iter.hasNext())
+        {
+            Patient pat = pat_Iter.next();
+            Iterator<Doctor> doc_Iter = docData.iterator();
+            while(doc_Iter.hasNext())
+            {
+                Doctor doc = doc_Iter.next();
+                if(pat.getAllotedDoctor() == doc.get_Id())
+                {
+                    doc.PatientsAssignedToDoc.add(pat.get_Id());
+                    doc.setNumberOfPatientsAssigned(1);
+                    break;
+                }
+            }
+
+            Iterator<Nurse> nur_Iter = nurData.iterator();
+            while(nur_Iter.hasNext())
+            {
+                Nurse nur = nur_Iter.next();
+                if(pat.getAllotedNurse() == nur.get_Id())
+                {
+                    nur.PatientsAssignedToNur.add(pat.get_Id());
+                    nur.setNumberOfPatientsAssigned(1);
+                    break;
+                }
+            }
+        }
     }
 
     public void searchPatient(int patID)
@@ -148,11 +178,13 @@ public class DataBase {
         nurData.add(Nur);
     }
 
-    public void removePatient(int pat_ID) {
+    public void removePatient(int pat_ID) 
+    {
         Iterator<Patient> iterator = patData.iterator();
         while (iterator.hasNext()) {
             Patient pat = iterator.next();
-            if (pat.get_Id() == pat_ID) {
+            if (pat.get_Id() == pat_ID) 
+            {
                 iterator.remove();
                 System.out.println("Patient Removed.\n");
                 // If you want to remove only the first occurrence of the patient ID
@@ -189,7 +221,7 @@ public class DataBase {
         System.out.println("Nurse you wanted to remove was not found.\n");
     }
 
-    public int assign_Doctor(String dept)
+    public int assign_Doctor(String dept, int patId)
     {
         Iterator<Doctor> iterator = this.docData.iterator();
         while (iterator.hasNext()) 
@@ -197,17 +229,30 @@ public class DataBase {
            Doctor doc  = iterator.next();
            if (dept.equals(doc.department)) 
            {
+            doc.PatientsAssignedToDoc.add(patId);
+            doc.setNumberOfPatientsAssigned(1);
             System.out.println("Doctor assigned.");
             return doc.get_Id();
            }
         }
         System.out.println("Doctor could not be assigned.");
-    return -1;
+            return -1;
     }
 
-    public int assign_Nurse()
+    public int assign_Nurse(int patId)
     {
         int allotID =  this.nurData.get(nurseTurn % this.nurData.size()).get_Id();
+        Iterator<Nurse> iterator = this.nurData.iterator();
+        while(iterator.hasNext())
+        {
+            Nurse nur = iterator.next();
+            if(allotID == nur.get_Id())
+            {
+                nur.PatientsAssignedToNur.add(patId);
+                nur.setNumberOfPatientsAssigned(1);
+                break;
+            }
+        }
         nurseTurn++;
         System.out.println("Nurse Alloted");
         return allotID;
