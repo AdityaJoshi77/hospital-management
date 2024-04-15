@@ -23,7 +23,6 @@ import javax.print.Doc;
             Scanner scan = new Scanner(System.in);
             System.out.print("\nPATIENT'S NAME: ");
                 PatientName = scan.nextLine();
-                
 
             System.out.print("GENDER: ");
                 Gender = scan.nextLine();
@@ -61,15 +60,9 @@ import javax.print.Doc;
                 }    
             }
 
-            System.out.println("Allotting Doctor...");
-            this.allot_Doctor(dat);
-
-            System.out.println("Alloting Nurse...");
-            this.allot_Nurse(dat);
-
             System.out.print("CONTACT NUMBER: ");
+                scan.nextLine(); // To clear the buffer.
                 Contact_No = scan.nextLine();
-
 
             System.out.print("BLOOD GROUP: ");
             System.out.print("Enter the blood group if known, else enter NA : ");
@@ -79,7 +72,15 @@ import javax.print.Doc;
                 Address = scan.nextLine();
 
             System.out.print("AGE: ");
-                Age = scan.nextInt();     
+                Age = scan.nextInt();  
+                
+            // Alloting Doctor to the Patient.
+            System.out.println("Allotting Doctor...");
+            this.allot_Doctor(dat);
+            
+            // Alloting Nurse to the Patient.
+            System.out.println("Alloting Nurse...");
+            this.allot_Nurse(dat);
         }
 
 
@@ -105,6 +106,11 @@ import javax.print.Doc;
 
         public void allot_Doctor(DataBase dat)
         {
+            // the allot_Nurse() function (belonging to the Patient Class) and the 
+            // assign_Nurse() function (belonging to the Doctor Class) act as interface
+            // between the Patient Class and the DataBase Class
+            // for the purpose of information exchange.
+
             this.allottedDoctorID = dat.assign_Doctor(this.DepartmentConcerned, this.get_Id());
         }
 
@@ -115,6 +121,11 @@ import javax.print.Doc;
 
         public void allot_Nurse(DataBase dat)
         {
+            // the allot_Nurse() function (belonging to the Patient Class) and the 
+            // assign_Nurse() function (belonging to the Doctor Class) act as interface
+            // between the Patient Class and the DataBase Class
+            // for the purpose of information exchange.
+
             this.allottedNurseID = dat.assign_Nurse(this.get_Id());
         }
 
@@ -167,27 +178,3 @@ import javax.print.Doc;
             System.out.println("Alloted Nurse ID: "+ allottedNurseID);
         }
     }
-
-
-            //     // increasing number of patients assigned to respective doctor
-        //     Iterator<Doctor> iterator = dat.docData.iterator();
-        //     while (iterator.hasNext()) 
-        //     {
-        //     Doctor doc  = iterator.next();
-        //     if (doc.get_Id() == this.allottedDoctorID) 
-        //     {
-        //         doc.setNumberOfPatientsAssigned(1);
-        //         break;
-        //     }
-        //     }
-        //     // increasing number of patients assigned to respective nurse
-        //     Iterator<Nurse> iterator2 = dat.nurData.iterator();
-        //     while (iterator2.hasNext()) 
-        //     {
-        //     Nurse nur  = iterator2.next();
-        //         if (nur.get_Id() == this.allottedNurseID) 
-        //         {
-        //             nur.setNumberOfPatientsAssigned(1);
-        //             break;
-        //         }
-        //     }

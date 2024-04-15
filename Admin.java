@@ -1,11 +1,12 @@
 import java.util.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.sql.DatabaseMetaData;
 import java.io.IOException;
+import java.util.Scanner;
 
-public class Admin {
 
+public class Admin 
+{
     public static void main(String[] args) throws IOException 
     {
         DataBase dat = new DataBase();
@@ -15,9 +16,9 @@ public class Admin {
         {
             System.out.println("\n****************************************");
             System.out.println("Enter your choice : ");
-            System.out.println("1. Patients.");
-            System.out.println("2. Doctors.");
-            System.out.println("3. Nurses.");
+            System.out.println("1. Patient Records.");
+            System.out.println("2. Doctor Records.");
+            System.out.println("3. Nurse Records.");
             System.out.println("4. Exit");
 
             int choice = scan.nextInt();
@@ -35,6 +36,8 @@ public class Admin {
                     switch (choice1) 
                     {
                         case 1:
+                            // Adding Patient    
+
                             Patient p1 = new Patient(dat);
                             dat.patData.add(p1);
                             System.out.println("Details you entered: ");
@@ -42,23 +45,30 @@ public class Admin {
                             break;
 
                         case 2:
+                            // Removing Patient
+
                             {System.out.println("Enter the ID of the Patient : ");
                             int searchID = scan.nextInt();
                             dat.removePatient(searchID);
                             break;}
 
                         case 3:
+                            // Searching Patient
+
                             {System.out.println("Enter Patient ID: ");
                             int searchID = scan.nextInt();
+                            System.out.println("\nFetching Patient >>>> \n");
                             dat.searchPatient(searchID);
                             break;}
                         
                         case 4:
+                            // Display All Patients
                             dat.displayAllPatients();
                             break;
                         
                         case 5:
                         {
+                            // Printing Patient Record.
                             System.out.println("Enter ID of the Patient for the Medical Record:");
                             int enterID = scan.nextInt();
                             Patient foundPatient = dat.getPatient(enterID);
@@ -84,6 +94,7 @@ public class Admin {
                     switch (choice2) 
                     {
                         case 1:
+                            // Adding Doctor
                             {Doctor d1 = new Doctor();
                             dat.docData.add(d1);
                             System.out.println("Doctor added successfully...");
@@ -99,6 +110,7 @@ public class Admin {
                         case 3:
                             System.out.println("Enter Doctor ID: ");
                             int searchID = scan.nextInt();
+                            System.out.println("\nFetching Doctor >>>> \n");
                             dat.searchDoctor(searchID);
                             break;
 
@@ -138,6 +150,7 @@ public class Admin {
                         case 3:
                             System.out.println("Enter Nurse ID: ");
                             int searchID = scan.nextInt();
+                            System.out.println("\nFetching Nurse >>>> \n");
                             dat.searchNurse(searchID);
                             break;
 

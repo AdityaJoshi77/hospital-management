@@ -3,7 +3,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
-public class Employee {
+public class Employee 
+{
     String employeeName;
     int salary;
     String type;
@@ -36,6 +37,5 @@ public class Employee {
     public void displayEmployee(int dummy) 
     {
         System.out.println("FULL NAME: " + employeeName);
-        // System.out.println("Salary: " + salary);
     }
 }

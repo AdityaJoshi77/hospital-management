@@ -1,14 +1,18 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
-public class DataBase {
+public class DataBase 
+{
     static int nurseTurn;
     ArrayList<Patient> patData = new ArrayList<>();
     ArrayList<Doctor> docData = new ArrayList<>();
     ArrayList<Nurse> nurData = new ArrayList<>();
 
-    public DataBase() throws IOException {
+    public DataBase() throws IOException 
+    {
         // DUMMY DATA
+        // Included in the database to demonstrate the functionality of the system
+        // when no data has been taken from the user yet.
         // -------------------------------------------------------------------------------------------
 
         // Adding dummy data for patients
@@ -66,8 +70,12 @@ public class DataBase {
 
     public void initiateDatabase()
     {
-        Iterator<Patient> pat_Iter = patData.iterator();
+        // Assigns the dummy patients to the 
+        // PatientsAssignedToDoc[] and PatientsAssignedToNur[] ArrayLists of the
+        // dummy doctors and to dummy nurses present in the database 
+        // on the basis of the ID.
 
+        Iterator<Patient> pat_Iter = patData.iterator();
         while(pat_Iter.hasNext())
         {
             Patient pat = pat_Iter.next();
@@ -99,6 +107,7 @@ public class DataBase {
 
     public void searchPatient(int patID)
     {
+        // Search for patient in the pat_Data ArrayList on the basis of patient ID.
         for(Patient pat : this.patData)
         {
             if(pat.get_Id() == patID)
@@ -112,6 +121,7 @@ public class DataBase {
 
     public void searchDoctor(int docID)
     {
+        // Search for Doctor in the doc_Data ArrayList on the basis of Doctor ID.
         for(Doctor doc : this.docData)
         {
             if(doc.get_Id() == docID)
@@ -125,6 +135,7 @@ public class DataBase {
 
     public void searchNurse(int nurID)
     {
+        // Search for Nurse in the nur_Data ArrayList on the basis of Nurse ID.
         for(Nurse nur : this.nurData)
         {
             if(nur.get_Id() == nurID)
@@ -166,56 +177,81 @@ public class DataBase {
         }
     }
 
-    public void addPatient(Patient Pat) {
-        patData.add(Pat);
-    }
-
-    public void addDoctor(Doctor Doc) {
-        docData.add(Doc);
-    }
-
-    public void addNurse(Nurse Nur) {
-        nurData.add(Nur);
-    }
-
     public void removePatient(int pat_ID) 
     {
+        // Whenever a patient is removed from the database
+        // his ID is removed from the ArrayLists that maintain the ID of patients
+        // alloted to the doctors and nurses in the database.
+
         Iterator<Patient> iterator = patData.iterator();
-        while (iterator.hasNext()) {
+        while (iterator.hasNext()) 
+        {
             Patient pat = iterator.next();
             if (pat.get_Id() == pat_ID) 
             {
+                Iterator<Doctor> doc_Iter = docData.iterator();
+                while(doc_Iter.hasNext())
+                {
+                    Doctor doc = doc_Iter.next();
+                    if(doc.get_Id() == pat.getAllotedDoctor())
+                    {
+                        doc.PatientsAssignedToDoc.remove((Integer)pat.get_Id());
+                        doc.setNumberOfPatientsAssigned(0);
+                        break;
+                    }
+                }
+
+                Iterator<Nurse> nur_Iter = nurData.iterator();
+                while(nur_Iter.hasNext())
+                {
+                    Nurse nur = nur_Iter.next();
+                    if(nur.get_Id() == pat.getAllotedNurse())
+                    {
+                        nur.PatientsAssignedToNur.remove((Integer)pat.get_Id());
+                        nur.setNumberOfPatientsAssigned(0);
+                        break;
+                    }
+                }
+
+                // After the removal of the patients Id from the PatientsAssigned ArrayList of the doctors
+                // and Nurses, he is removed from the database.
                 iterator.remove();
                 System.out.println("Patient Removed.\n");
-                // If you want to remove only the first occurrence of the patient ID
-                return;
+                return; // Returning from the function after removing the patient.
             }
         }
         System.out.println("Patient you wanted to remove was not found.\n");
     }
-    public void removeDoctor(int doc_ID) {
+
+
+    public void removeDoctor(int doc_ID) 
+    {
+        // Removes Doctor from the database on the basis of ID.
         Iterator<Doctor> iterator = docData.iterator();
-        while (iterator.hasNext()) {
+        while (iterator.hasNext()) 
+        {
             Doctor doc = iterator.next();
-            if (doc.get_Id() == doc_ID) {
+            if (doc.get_Id() == doc_ID) 
+            {
                 iterator.remove();
                 System.out.println("Doctor Removed.\n");
-                // If you want to remove only the first occurrence of the doctor ID
-                return;
+                return; // Returning from the function after removing the doctor.
             }
         }
         System.out.println("Doctor you wanted to remove was not found.\n");
     }
 
-    public void removeNurse(int nur_ID) {
+    public void removeNurse(int nur_ID) 
+    {
+        // Removes Nurse from the database on the basis of ID.
         Iterator<Nurse> iterator = nurData.iterator();
-        while (iterator.hasNext()) {
+        while (iterator.hasNext()) 
+        {
             Nurse nur = iterator.next();
             if (nur.get_Id() == nur_ID) {
                 iterator.remove();
                 System.out.println("Nurse Removed.\n");
-                // If you want to remove only the first occurrence of the nurse ID
-                return;
+                return; // Returning from the function after removing the Nurse.
             }
         }
         System.out.println("Nurse you wanted to remove was not found.\n");
@@ -223,6 +259,13 @@ public class DataBase {
 
     public int assign_Doctor(String dept, int patId)
     {
+        // the allot_Nurse() function (belonging to the Patient Class) and the 
+        // assign_Nurse() function (belonging to the Doctor Class) act as interface
+        // between the Patient Class and the DataBase Class
+        // for the purpose of information exchange.
+
+        // assign_Doctor() assigns the ID of a Doctor whose department matches with the 
+        // Patient's health issues on the basis of the String dept as
         Iterator<Doctor> iterator = this.docData.iterator();
         while (iterator.hasNext()) 
         {
@@ -241,6 +284,12 @@ public class DataBase {
 
     public int assign_Nurse(int patId)
     {
+        // the allot_Nurse() function (belonging to the Patient Class) and the 
+        // assign_Nurse() function (belonging to the Doctor Class) act as interface
+        // between the Patient Class and the DataBase Class
+        // for the purpose of information exchange.
+
+        // Round Robin allotment of nurses.
         int allotID =  this.nurData.get(nurseTurn % this.nurData.size()).get_Id();
         Iterator<Nurse> iterator = this.nurData.iterator();
         while(iterator.hasNext())
@@ -259,15 +308,16 @@ public class DataBase {
     }
 
     
-    public Patient getPatient(int patID){
+    public Patient getPatient(int patID)
+    {
+        // To provide the patient from the Database upon request
+        // (As used in the getPatientReport Option of the Admin Class.)
         Iterator<Patient> iterator =this.patData.iterator();
         while (iterator.hasNext()) 
         {
             Patient pat  = iterator.next();
             if (pat.get_Id() == patID) 
-            {
                 return pat;
-            }
         }
         return null;
     }

@@ -13,7 +13,6 @@ public class Doctor extends Employee
     private int DoctorID;
     String[] DocTypeDept = {"Rheumatology","Cardiology","Pediatric","ENT","Dentist"};
     String[] DocTypeJobTitle = {"Rheumatologist","Cardiologist","Pediatrician","ENT Specialist","Dentist"};
-
     int numberOfPatientsAssigned = 0;
 
     // Default Constructor
@@ -22,6 +21,7 @@ public class Doctor extends Employee
         DoctorID = ++DoctorID_Gen;
         Scanner scan = new Scanner(System.in);
         BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
+        this.type = "Doctor";
         System.out.println(" Select Doctor's Specialization:");
         System.out.println("1. Rheumatology");
         System.out.println("2. Cardiology");
@@ -59,10 +59,6 @@ public class Doctor extends Employee
                     break;
             }    
         }
-    
-        // this.specialization = scan.nextLine();
-        this.type = "Doctor";
-        // numberOfPatientsAssigned++;
     }
 
     
@@ -92,16 +88,19 @@ public class Doctor extends Employee
 
     public void displayDoctor(int dummy) 
     {
+        // Overloaded to print only the relevant details while fetching the patient's complete record.
         this.displayEmployee(1/*Dummy Val*/);
-        System.out.println("Department: "+this.department);
-        System.out.println("Job Title: "+this.jobTitle);
-        // System.out.println("Number of Patients Assigned: " + numberOfPatientsAssigned);
+        System.out.println("Department: " + this.department);
+        System.out.println("Job Title: " + this.jobTitle);
     }
 
     public void displayPatientsAlloted()
-    {
+    {   
+        // Displays the IDs of the patients in the PatientsAssignedToDoc
+        // ArrayList of the Doctor.
         System.out.print("ID of patients allotted: ");
-        for (Integer patID : this.PatientsAssignedToDoc) {
+        for (Integer patID : this.PatientsAssignedToDoc) 
+        {
             System.out.print(patID + ", ");
         }
         System.out.println();
@@ -110,8 +109,12 @@ public class Doctor extends Employee
     public void setNumberOfPatientsAssigned(int incDec) 
     {
         if (incDec == 1)
-            this.numberOfPatientsAssigned++;            
+        // If a patient is alloted to the ArrayList of the Doctor  (denoted by incDec == 1)
+        // numberOfPatientsAssigned is incremented.
+            this.numberOfPatientsAssigned++; 
         else
+        // If a patient is removed from the ArrayList of the Doctor (denoted by incDec == 0)
+        // numberOfPatientsAssigned is decremented.
             this.numberOfPatientsAssigned--;
     }
 }
