@@ -14,24 +14,25 @@ public class Admin
         Scanner scan = new Scanner(System.in);
         while(true)
         {
-            System.out.println("\n****************************************");
+            System.out.println("\n-------------- ADMIN PANEL ---------------");
             System.out.println("Enter your choice : ");
             System.out.println("1. Patient Records.");
             System.out.println("2. Doctor Records.");
             System.out.println("3. Nurse Records.");
             System.out.println("4. Exit");
-
+            System.out.print("Enter Choice: ");
             int choice = scan.nextInt();
             switch (choice) 
             {
                 case 1: 
                 {
-                    System.out.println("\nEnter your choice : ");
+                    System.out.println("\n---------------- PATIENTS -----------------");
                     System.out.println("1. Add Patient.");
                     System.out.println("2. Remove Patient.");
                     System.out.println("3. Search Patient");
                     System.out.println("4. View All Patients");
                     System.out.println("5. Print Medical Report Of Patient.");
+                    System.out.print("Enter Choice: ");
                     int choice1 = scan.nextInt();
                     switch (choice1) 
                     {

@@ -21,13 +21,14 @@ import javax.print.Doc;
             PatientID = ++PatientID_Gen;
 
             Scanner scan = new Scanner(System.in);
-            System.out.print("\nPATIENT'S NAME: ");
+            System.out.println("\n-------------- ADDING PATIENTS---------------");
+            System.out.print("PATIENT'S NAME: ");
                 PatientName = scan.nextLine();
 
             System.out.print("GENDER: ");
                 Gender = scan.nextLine();
 
-            System.out.println("Select Nature of Illness:");
+            System.out.println("\nSelect Nature of Illness:");
             System.out.println("1. Joint-Pain Issues");
             System.out.println("2. Cardiac Issues");
             System.out.println("3. Dietary Issues");
@@ -36,6 +37,7 @@ import javax.print.Doc;
     
             whileloop: while (true) 
             {
+                System.out.print("Enter Choice: ");
                 int n = scan.nextInt();
                 switch (n) 
                 {
@@ -60,6 +62,13 @@ import javax.print.Doc;
                 }    
             }
 
+            System.out.println("Allotting Doctor...");
+            this.allot_Doctor(dat);
+
+            System.out.println("Alloting Nurse...");
+            this.allot_Nurse(dat);
+
+           //Skipped while being executed
             System.out.print("CONTACT NUMBER: ");
                 scan.nextLine(); // To clear the buffer.
                 Contact_No = scan.nextLine();
