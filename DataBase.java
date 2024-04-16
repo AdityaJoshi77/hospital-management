@@ -149,30 +149,30 @@ public class DataBase
 
     public void displayAllPatients()
     {
-        System.out.println("\n------------------Patients Data----------------------");
+        System.out.println("\n-------------- PATIENTS - RECORDS ---------------");
         for(Patient pat : this.patData)
         {
-            System.out.println("---------------------------------------------------\n");
+
             pat.displayPatient();
         }
     }
 
     public void displayAllDoctors()
     {
-        System.out.println("\n------------------Doctors Data----------------------");
+        System.out.println("\n---------------- DOCTORS RECORDS ----------------");
         for(Doctor doc : this.docData)
         {
-            System.out.println("---------------------------------------------------\n");
+
             doc.displayDoctor();
         }
     }
 
     public void displayAllNurses()
     {
-        System.out.println("\n------------------Nurse Data----------------------");
+        System.out.println("\n--------------- NURSE RECORDS -------------------");
         for(Nurse nur : this.nurData)
         {
-            System.out.println("---------------------------------------------------\n");
+
             nur.displayNurse();
         }
     }

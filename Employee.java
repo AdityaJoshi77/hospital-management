@@ -29,13 +29,15 @@ public class Employee
     }
 
     public void displayEmployee() 
-    {
-        System.out.println("FULL NAME: " + employeeName);
+    {   
+        System.out.println("-------------------------------------------------");
+        System.out.println("\nFULL NAME: " + employeeName);
         System.out.println("Salary: " + salary);
     }
 
     public void displayEmployee(int dummy) 
-    {
-        System.out.println("FULL NAME: " + employeeName);
+    {   
+        System.out.println("-------------------------------------------------");
+        System.out.println("\nFULL NAME: " + employeeName);
     }
 }

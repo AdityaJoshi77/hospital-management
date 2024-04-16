@@ -14,7 +14,7 @@ public class Admin
         Scanner scan = new Scanner(System.in);
         while(true)
         {
-            System.out.println("\n-------------- ADMIN PANEL ---------------");
+            System.out.println("\n\n----------------- ADMIN PANEL ------------------");
             System.out.println("Enter your choice : ");
             System.out.println("1. Patient Records.");
             System.out.println("2. Doctor Records.");
@@ -26,7 +26,7 @@ public class Admin
             {
                 case 1: 
                 {
-                    System.out.println("\n---------------- PATIENTS -----------------");
+                    System.out.println("\n------------------ PATIENTS -------------------");
                     System.out.println("1. Add Patient.");
                     System.out.println("2. Remove Patient.");
                     System.out.println("3. Search Patient");
@@ -41,14 +41,14 @@ public class Admin
 
                             Patient p1 = new Patient(dat);
                             dat.patData.add(p1);
-                            System.out.println("Details you entered: ");
+                            System.out.println("\n\t\tDetails you entered: ");
                             p1.displayPatient();
                             break;
 
                         case 2:
                             // Removing Patient
 
-                            {System.out.println("Enter the ID of the Patient : ");
+                            {System.out.print("Enter the ID of the Patient : ");
                             int searchID = scan.nextInt();
                             dat.removePatient(searchID);
                             break;}
@@ -56,9 +56,9 @@ public class Admin
                         case 3:
                             // Searching Patient
 
-                            {System.out.println("Enter Patient ID: ");
+                            {System.out.print("Enter Patient ID: ");
                             int searchID = scan.nextInt();
-                            System.out.println("\nFetching Patient >>>> \n");
+                            System.out.println("\nFetching Patient....................... \n");
                             dat.searchPatient(searchID);
                             break;}
                         
@@ -70,7 +70,7 @@ public class Admin
                         case 5:
                         {
                             // Printing Patient Record.
-                            System.out.println("Enter ID of the Patient for the Medical Record:");
+                            System.out.print("Enter ID of the Patient for the Medical Record:");
                             int enterID = scan.nextInt();
                             Patient foundPatient = dat.getPatient(enterID);
                             foundPatient.getPatientReport(dat);
@@ -85,12 +85,12 @@ public class Admin
               
                 case 2: 
                 {
-                    System.out.println("\nEnter your choice : ");
+                    System.out.println("\n------------------ DOCTORS -------------------");
                     System.out.println("1. Add Doctor.");
                     System.out.println("2. Remove Doctor.");
                     System.out.println("3. Search Doctor");
                     System.out.println("4. View All Doctors");
-
+                    System.out.print("Enter Choice: ");
                     int choice2 = scan.nextInt();
                     switch (choice2) 
                     {
@@ -103,15 +103,15 @@ public class Admin
                             // d1.displayDoctor();
                             break;}
                         case 2:
-                        {System.out.println("Enter the ID of the Doctor : ");
+                        {System.out.print("Enter the ID of the Doctor : ");
                             int searchID = scan.nextInt();
                             dat.removeDoctor(searchID);
                             break;}
 
                         case 3:
-                            System.out.println("Enter Doctor ID: ");
+                            System.out.print("Enter Doctor ID: ");
                             int searchID = scan.nextInt();
-                            System.out.println("\nFetching Doctor >>>> \n");
+                            System.out.println("\nFetching Doctor.................. \n");
                             dat.searchDoctor(searchID);
                             break;
 
@@ -127,31 +127,31 @@ public class Admin
                 }
     
                 case 3:
-                    System.out.println("\nEnter your choice : ");
+                System.out.println("\n----------------- NURSES -------------------");
                     System.out.println("1. Add Nurse.");
                     System.out.println("2. Remove Nurse.");
                     System.out.println("3. Search Nurse");
                     System.out.println("4. View All Nurses");
-
+                    System.out.print("Enter Choice: ");
                     int choice3 = scan.nextInt();
                     switch (choice3) 
                     {
                         case 1:
                             Nurse n1 = new Nurse();
                             dat.nurData.add(n1);
-                            System.out.println("\nDetails you entered: ");
+                            System.out.println("\n\t\tDetails you entered: ");
                             n1.displayEmployee();
                             n1.displayNurse();
                             break;
                         case 2:
-                        {System.out.println("Enter the ID of the Nurse : ");
+                        {System.out.print("Enter the ID of the Nurse : ");
                             int searchID = scan.nextInt();
                             dat.removeNurse(searchID);
                             break;}
                         case 3:
-                            System.out.println("Enter Nurse ID: ");
+                            System.out.print("Enter Nurse ID: ");
                             int searchID = scan.nextInt();
-                            System.out.println("\nFetching Nurse >>>> \n");
+                            System.out.println("\nFetching Nurse....................... \n");
                             dat.searchNurse(searchID);
                             break;
 

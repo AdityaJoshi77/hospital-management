@@ -22,7 +22,7 @@ public class Doctor extends Employee
         Scanner scan = new Scanner(System.in);
         BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
         this.type = "Doctor";
-        System.out.println(" Select Doctor's Specialization:");
+        System.out.println(" \nSelect Doctor's Specialization:");
         System.out.println("1. Rheumatology");
         System.out.println("2. Cardiology");
         System.out.println("3. Pediatrician");
@@ -30,7 +30,8 @@ public class Doctor extends Employee
         System.out.println("5. Dentist");
 
         whileloop: while (true) 
-        {
+        {   
+            System.out.print("Enter Choice: ");
             int n = scan.nextInt();
             switch (n) 
             {

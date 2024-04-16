@@ -33,7 +33,7 @@ import javax.print.Doc;
             System.out.println("2. Cardiac Issues");
             System.out.println("3. Dietary Issues");
             System.out.println("4. ENT Issues");
-            System.out.println("5. Dental Issues");
+            System.out.println("5. Dental Issues\n");
     
             whileloop: while (true) 
             {
@@ -68,13 +68,12 @@ import javax.print.Doc;
             System.out.println("Alloting Nurse...");
             this.allot_Nurse(dat);
 
-           //Skipped while being executed
-            System.out.print("CONTACT NUMBER: ");
+
+            System.out.print("\nCONTACT NUMBER: ");
                 scan.nextLine(); // To clear the buffer.
                 Contact_No = scan.nextLine();
 
-            System.out.print("BLOOD GROUP: ");
-            System.out.print("Enter the blood group if known, else enter NA : ");
+            System.out.print("BLOOD GROUP else NA: ");
                 BloodGroup = scan.nextLine();
 
             System.out.print("ADDRESS: ");
@@ -174,9 +173,9 @@ import javax.print.Doc;
 
         public void displayPatient()
         {
-            System.out.println("\n****************************************");
-            System.out.println("Patient ID: "+ PatientID);
-            System.out.println("FULL NAME: " + PatientName);
+            System.out.println("-------------------------------------------------");
+            System.out.println("\t\tPatient ID: "+ PatientID);
+            System.out.println("\nFULL NAME: " + PatientName);
             System.out.println("CONTACT NUMBER: " + Contact_No);
             System.out.println("BLOOD GROUP: " + BloodGroup);
             System.out.println("GENDER: "  + Gender);
