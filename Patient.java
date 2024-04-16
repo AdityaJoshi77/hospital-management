@@ -62,10 +62,10 @@ import javax.print.Doc;
                 }    
             }
 
-            System.out.println("Allotting Doctor...");
+            // Alloting Doctor to the Patient.
             this.allot_Doctor(dat);
 
-            System.out.println("Alloting Nurse...");
+            // Alloting Nurse to the Patient.
             this.allot_Nurse(dat);
 
 
@@ -81,14 +81,7 @@ import javax.print.Doc;
 
             System.out.print("AGE: ");
                 Age = scan.nextInt();  
-                
-            // Alloting Doctor to the Patient.
-            System.out.println("Allotting Doctor...");
-            this.allot_Doctor(dat);
-            
-            // Alloting Nurse to the Patient.
-            System.out.println("Alloting Nurse...");
-            this.allot_Nurse(dat);
+
         }
 
 

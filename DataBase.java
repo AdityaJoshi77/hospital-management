@@ -272,10 +272,11 @@ public class DataBase
            Doctor doc  = iterator.next();
            if (dept.equals(doc.department)) 
            {
-            doc.PatientsAssignedToDoc.add(patId);
-            doc.setNumberOfPatientsAssigned(1);
-            System.out.println("Doctor assigned.");
-            return doc.get_Id();
+                
+                doc.PatientsAssignedToDoc.add(patId);
+                doc.setNumberOfPatientsAssigned(1);
+                System.out.println("Doctor assigned." );
+                return doc.get_Id();
            }
         }
         System.out.println("Doctor could not be assigned.");
@@ -303,7 +304,7 @@ public class DataBase
             }
         }
         nurseTurn++;
-        System.out.println("Nurse Alloted");
+        System.out.println("Nurse assigned");
         return allotID;
     }
 
