@@ -50,6 +50,7 @@ public class Nurse extends Employee {
     public void displayNurse() 
     {
         this.displayEmployee();
+        System.out.println("Nurse ID: "+get_Id());
         System.out.println("Number of Patients Assigned: " + numberOfPatientsAssigned);
         this.displayPatientsAlloted();
     }
