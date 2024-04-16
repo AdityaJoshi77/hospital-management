@@ -16,21 +16,21 @@ public class DataBase
         // -------------------------------------------------------------------------------------------
 
         // Adding dummy data for patients
-        Patient patient1 = new Patient(101, "Anjali Gupta", "1234567890", "123, Main Street, City", "O+", "Female", 35,"Cardiology",101,201);
+        Patient patient1 = new Patient(301, "Anjali Gupta", "1234567890", "123, Main Street, City", "O+", "Female", 35,"Cardiology",101,201);
         patData.add(patient1);
 
-        Patient patient2 = new Patient(102, "Amit Singh", "9876543210", "456, Second Avenue, Town", "A-", "Male", 45,"Rheumatology",102,202);
+        Patient patient2 = new Patient(302, "Amit Singh", "9876543210", "456, Second Avenue, Town", "A-", "Male", 45,"Rheumatology",102,202);
         patData.add(patient2);
 
-        Patient patient3 = new Patient(103, "Priya Sharma", "9998887776", "789, Third Road, Village", "B+", "Female",
+        Patient patient3 = new Patient(303, "Priya Sharma", "9998887776", "789, Third Road, Village", "B+", "Female",
                 25,"Pediatry",103,203);
         patData.add(patient3);
 
-        Patient patient4 = new Patient(104, "Rahul Kapoor", "8887776665", "101, Fourth Lane, Countryside", "AB-",
+        Patient patient4 = new Patient(304, "Rahul Kapoor", "8887776665", "101, Fourth Lane, Countryside", "AB-",
                 "Male", 55,"ENT",104,204);
         patData.add(patient4);
 
-        Patient patient5 = new Patient(105, "Neha Patel", "6665554443", "678, Fifth Street, Suburb", "O-", "Female",
+        Patient patient5 = new Patient(305, "Neha Patel", "6665554443", "678, Fifth Street, Suburb", "O-", "Female",
                 30,"Dental",105,205);
         patData.add(patient5);
 

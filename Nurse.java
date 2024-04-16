@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Nurse extends Employee {
 
-    static int NurseID_Gen = 100;
+    static int NurseID_Gen = 205;
     private int NurseID;
     ArrayList<Integer> PatientsAssignedToNur = new ArrayList<>();
     int numberOfPatientsAssigned = 0;
@@ -50,6 +50,7 @@ public class Nurse extends Employee {
     public void displayNurse() 
     {
         this.displayEmployee();
+        System.out.println("Nurse ID: "+get_Id());
         System.out.println("Number of Patients Assigned: " + numberOfPatientsAssigned);
         this.displayPatientsAlloted();
     }

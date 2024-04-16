@@ -8,7 +8,7 @@ public class Doctor extends Employee
 {
     String department;
     String jobTitle;
-    static int DoctorID_Gen = 100;
+    static int DoctorID_Gen = 105;
     ArrayList<Integer> PatientsAssignedToDoc = new ArrayList<>();
     private int DoctorID;
     String[] DocTypeDept = {"Rheumatology","Cardiology","Pediatric","ENT","Dentist"};
@@ -81,6 +81,7 @@ public class Doctor extends Employee
     public void displayDoctor() 
     {
         this.displayEmployee(/*Dummy Val*/);
+        System.out.println("Doctor ID: "+get_Id());
         System.out.println("Department: "+this.department);
         System.out.println("Job Title: "+this.jobTitle);
         System.out.println("Number of Patients Assigned: " + numberOfPatientsAssigned);

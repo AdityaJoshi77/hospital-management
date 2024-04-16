@@ -3,7 +3,7 @@
 import javax.print.Doc;
     public class Patient
     {
-        static int PatientID_Gen = 105;
+        static int PatientID_Gen = 305;
         private int PatientID;
         private int allottedDoctorID;
         private int allottedNurseID;
