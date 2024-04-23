@@ -61,8 +61,9 @@ public class Nurse extends Employee {
     // function for printing single nurse
     public void displayNurse() 
     {
+        System.out.println("-------------------------------------------------");
+        System.out.println("\t\tNurse ID: "+get_Id());
         this.displayEmployee();
-        System.out.println("Nurse ID: "+get_Id());
         System.out.println("Number of Patients Assigned: " + numberOfPatientsAssigned);
         this.displayPatientsAlloted();
     }

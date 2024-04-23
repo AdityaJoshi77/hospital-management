@@ -83,17 +83,16 @@ public class Doctor extends Employee {
                 "------------------------------------------------------------------------------------------------------------------------------------");
     }
 
-
     // function for printing single doctor
-    public void displayDoctor()
-    {
-    this.displayEmployee(/*Dummy Val*/);
-    System.out.println("Doctor ID: "+get_Id());
-    System.out.println("Department: "+this.department);
-    System.out.println("Job Title: "+this.jobTitle);
-    System.out.println("Number of Patients Assigned: " +
-    numberOfPatientsAssigned);
-    this.displayPatientsAlloted();
+    public void displayDoctor() {
+        System.out.println("-------------------------------------------------");
+        System.out.println("\t\tDoctor ID: " + get_Id());
+        this.displayEmployee(/* Dummy Val */);
+        System.out.println("Department: " + this.department);
+        System.out.println("Job Title: " + this.jobTitle);
+        System.out.println("Number of Patients Assigned: " +
+                numberOfPatientsAssigned);
+        this.displayPatientsAlloted();
     }
 
     public void displayDoctor(int dummy) {
@@ -124,7 +123,6 @@ public class Doctor extends Employee {
         }
         System.out.println();
     }
-
 
     public void setNumberOfPatientsAssigned(int incDec) {
         if (incDec == 1)

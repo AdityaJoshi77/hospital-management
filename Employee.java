@@ -41,7 +41,6 @@ public class Employee
     // function for printing single employee
     public void displayEmployee() 
     {   
-        System.out.println("-------------------------------------------------");
         System.out.println("\nFULL NAME: " + employeeName);
         System.out.println("Salary: " + salary);
     }

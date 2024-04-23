@@ -26,7 +26,7 @@ public class Admin
             {
                 case 1: 
                 {
-                    System.out.println("\n------------------ PATIENTS -------------------");
+                    System.out.println("\n-------- PATIENTS -----------------------------");
                     System.out.println("1. Add Patient.");
                     System.out.println("2. Remove Patient.");
                     System.out.println("3. Search Patient");
@@ -87,7 +87,7 @@ public class Admin
               
                 case 2: 
                 {
-                    System.out.println("\n------------------ DOCTORS -------------------");
+                    System.out.println("\n-------- DOCTORS -----------------------------");
                     System.out.println("1. Add Doctor.");
                     System.out.println("2. Remove Doctor.");
                     System.out.println("3. Search Doctor");
@@ -129,7 +129,7 @@ public class Admin
                 }
     
                 case 3:
-                System.out.println("\n----------------- NURSES -------------------");
+                System.out.println("\n-------- NURSES ----------------------------");
                     System.out.println("1. Add Nurse.");
                     System.out.println("2. Remove Nurse.");
                     System.out.println("3. Search Nurse");
