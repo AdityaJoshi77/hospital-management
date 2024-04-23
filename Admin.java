@@ -54,7 +54,8 @@ public class Admin
                             break;}
 
                         case 3:
-                            // Searching Patient
+                            // Searching Patient1
+
 
                             {System.out.print("Enter Patient ID: ");
                             int searchID = scan.nextInt();
@@ -65,6 +66,7 @@ public class Admin
                         case 4:
                             // Display All Patients
                             dat.displayAllPatients();
+                            
                             break;
                         
                         case 5:
