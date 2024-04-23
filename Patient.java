@@ -24,36 +24,52 @@ public class Patient {
         System.out.print("PATIENT'S NAME: ");
         PatientName = scan.nextLine();
 
-        System.out.print("GENDER: ");
-        Gender = scan.nextLine();
-
-        System.out.println("\nSelect Nature of Illness:");
-        System.out.println("1. Joint-Pain Issues");
-        System.out.println("2. Cardiac Issues");
-        System.out.println("3. Dietary Issues");
-        System.out.println("4. ENT Issues");
-        System.out.println("5. Dental Issues\n");
-
-        whileloop: while (true) {
-            System.out.print("Enter Choice: ");
-            int n = scan.nextInt();
-            switch (n) {
+            // GENDER INPUT
+            System.out.print("GENDER: ");
+            System.out.println("\n  1 => Male.");
+            System.out.println("  2 => Female.");
+            System.out.println("  3 => Others.");
+            int chooseGender = scan.nextInt();
+            switch(chooseGender)
+            {
                 case 1:
-                    DepartmentConcerned = DepartmentConcernedList[0];
-                    break whileloop;
+                    Gender = "Male"; break;
                 case 2:
-                    DepartmentConcerned = DepartmentConcernedList[1];
-                    break whileloop;
+                    Gender = "Female"; break;
                 case 3:
-                    DepartmentConcerned = DepartmentConcernedList[2];
-                    break whileloop;
-                case 4:
-                    DepartmentConcerned = DepartmentConcernedList[3];
-                    break whileloop;
-                case 5:
-                    DepartmentConcerned = DepartmentConcernedList[4];
-                    break whileloop;
-                default:
+                    Gender = "Others"; break;
+            }
+
+            System.out.println("\nSelect Nature of Illness:");
+            System.out.println("1. Joint-Pain Issues");
+            System.out.println("2. Cardiac Issues");
+            System.out.println("3. Dietary Issues");
+            System.out.println("4. ENT Issues");
+            System.out.println("5. Dental Issues\n");
+    
+            whileloop: while (true) 
+            {
+                System.out.print("Enter Choice: ");
+                int n = scan.nextInt();
+                switch (n) 
+                {
+                    case 1:
+                    DepartmentConcerned  = DepartmentConcernedList[0];
+                        break whileloop;
+                    case 2:
+                    DepartmentConcerned  = DepartmentConcernedList[1];
+                        break whileloop;  
+                    case 3:
+                    DepartmentConcerned  = DepartmentConcernedList[2];
+                        break whileloop;  
+                    case 4:
+                    DepartmentConcerned  = DepartmentConcernedList[3];
+                        break whileloop;  
+                    case 5:
+                    DepartmentConcerned  = DepartmentConcernedList[4];
+                        break whileloop;
+
+                    default:
                     System.out.println("Please select a valid option");
                     break;
             }
@@ -62,21 +78,92 @@ public class Patient {
         // Alloting Doctor to the Patient.
         this.allot_Doctor(dat);
 
-        // Alloting Nurse to the Patient.
-        this.allot_Nurse(dat);
+            // Alloting Nurse to the Patient.
+            this.allot_Nurse(dat);
 
-        System.out.print("\nCONTACT NUMBER: ");
-        scan.nextLine(); // To clear the buffer.
-        Contact_No = scan.nextLine();
+            // AGE INPUT:
+            System.out.print("ENTER AGE: ");
+            while(true)
+            {
+                try
+                {
+                    Age = scan.nextInt();
+                }
+                catch(InputMismatchException input)
+                {
+                    System.out.println("Invalid Age. Please enter a valid integer as age : ");
+                    scan.next();
+                    continue;
+                }
 
-        System.out.print("BLOOD GROUP else NA: ");
-        BloodGroup = scan.nextLine();
+                if(Age < 0)
+                {
+                    System.out.println("Invalid Age. Enter the Age again : ");
+                    continue;
+                }
+                else break;
+            }
+
+
+            System.out.print("\nENTER CONTACT NUMBER: ");
+            scan.next();
+            while(true)
+            {
+                Contact_No = scan.nextLine();
+                System.out.println();
+                if(!Contact_No.matches("^\\d{10}$"))
+                {
+                    System.out.println("Invalid Contact Number....\n  Enter Contact Number again : ");
+                }
+                else
+                    break;
+            }
+            
+
+            // BLOODGROUP INPUT
+            BGLOOP: while(true)
+            {
+
+                System.out.println("SELECT BLOOD GROUP: ");
+                System.out.println("  1 => A+");
+                System.out.println("  2 => A-");
+                System.out.println("  3 => B+");
+                System.out.println("  4 => B-");
+                System.out.println("  5 => AB+");
+                System.out.println("  6 => AB-");
+                System.out.println("  7 => O+");
+                System.out.println("  8 => O-");
+                int chooseBG = scan.nextInt();
+
+                switch(chooseBG)
+                {
+                    case 1:
+                        BloodGroup = "A+"; break BGLOOP;
+                    case 2:
+                        BloodGroup = "A-"; break BGLOOP;
+                    case 3:
+                        BloodGroup = "B+"; break BGLOOP;
+                    case 4:
+                        BloodGroup = "B-"; break BGLOOP;
+                    case 5:
+                        BloodGroup = "AB+"; break BGLOOP;
+                    case 6:
+                        BloodGroup = "AB-"; break BGLOOP;
+                    case 7:
+                        BloodGroup = "O+"; break BGLOOP;
+                    case 8:
+                        BloodGroup = "O-"; break BGLOOP;
+                    default:
+                        System.out.println("\nPlease Select Valid Blood Group....");
+                        break;
+                }
+            }
 
         System.out.print("ADDRESS: ");
         Address = scan.nextLine();
 
-        System.out.print("AGE: ");
-        Age = scan.nextInt();
+            
+                 
 
     }
 

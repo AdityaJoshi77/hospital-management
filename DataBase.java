@@ -167,6 +167,7 @@ public class DataBase
 
             pat.displayPatient(1);
         }
+
     }
 
     public void displayAllDoctors()
