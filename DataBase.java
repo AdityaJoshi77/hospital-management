@@ -149,7 +149,19 @@ public class DataBase
 
     public void displayAllPatients()
     {
-        System.out.println("\n-------------- PATIENTS - RECORDS ---------------");
+        System.out.println("\n---------------------------------------------------PATIENTS - RECORDS---------------------------------------------------------------");
+        System.out.printf("| %-3s |", "ID");
+        System.out.printf("| %-12s |", "Name");
+        System.out.printf("| %-10s |", "Phone No");
+        System.out.printf("| %-1s |", "B-GP");
+        System.out.printf("| %-7s |", "Gender");
+        System.out.printf("| %-30s |", "Address");
+        System.out.printf("| %-1s |", "Age");
+        System.out.printf("| %-11s |", "Physician");
+        System.out.printf("| %-1s |", "Doc ID");
+        System.out.printf("| %-1s |", "Nur ID");
+        System.out.println();
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
         for(Patient pat : this.patData)
         {
 
@@ -160,7 +172,16 @@ public class DataBase
 
     public void displayAllDoctors()
     {
-        System.out.println("\n---------------- DOCTORS RECORDS ----------------");
+        System.out.println("\n---------------------------------------------------DOCTORS - RECORDS---------------------------------------------------------------");
+        System.out.printf("| %-19s |", "Name");
+        System.out.printf("| %-8s |", "Salary");
+        System.out.printf("| %-3s |", "ID");
+        System.out.printf("| %-12s |", "Department");
+        System.out.printf("| %-15s |", "Job Title");
+        System.out.printf("| %-4s |", "Total Patients Assigned");
+        System.out.printf("| %-10s |", "ID of Patients Assigned");
+        System.out.println();
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
         for(Doctor doc : this.docData)
         {
 
@@ -170,7 +191,15 @@ public class DataBase
 
     public void displayAllNurses()
     {
-        System.out.println("\n--------------- NURSE RECORDS -------------------");
+        // System.out.println("\n--------------- NURSE RECORDS -------------------");
+        System.out.println("\n---------------------------------------------------NURSES - RECORDS-----------------------------------------------------------------");
+        System.out.printf("| %-19s |", "Name");
+        System.out.printf("| %-8s |", "Salary");
+        System.out.printf("| %-3s |", "ID");
+        System.out.printf("| %-4s |", "Total Patients Assigned");
+        System.out.printf("| %-10s ", "ID of Patients Assigned");
+        System.out.println();
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
         for(Nurse nur : this.nurData)
         {
 

@@ -28,12 +28,23 @@ public class Employee
         this.type = type;
     }
 
+
+    
     public void displayEmployee() 
     {   
-        System.out.println("-------------------------------------------------");
-        System.out.println("\nFULL NAME: " + employeeName);
-        System.out.println("Salary: " + salary);
+        // System.out.println("-------------------------------------------------");
+        System.out.printf("| %-19s |", this.employeeName);
+        System.out.printf("| %-8s |", this.salary);
+
     }
+
+
+    // public void displayEmployee() 
+    // {   
+    //     System.out.println("-------------------------------------------------");
+    //     System.out.println("\nFULL NAME: " + employeeName);
+    //     System.out.println("Salary: " + salary);
+    // }
 
     public void displayEmployee(int dummy) 
     {   
