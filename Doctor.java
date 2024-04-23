@@ -82,6 +82,17 @@ public class Doctor extends Employee {
         System.out.println(
                 "------------------------------------------------------------------------------------------------------------------------------------");
     }
+    
+    // gfor patient medical record
+    public void displayDoctorTabular(int dummy) {
+        this.displayEmployeeTabular(1);
+        System.out.printf("| %-3s |", this.get_Id());
+        System.out.printf("| %-12s |", this.department);
+        System.out.printf("| %-15s |", this.jobTitle);
+        System.out.println();
+        System.out.println(
+                "-----------------------------------------------------------------");
+    }
 
     // function for printing single doctor
     public void displayDoctor() {
@@ -95,13 +106,13 @@ public class Doctor extends Employee {
         this.displayPatientsAlloted();
     }
 
-    public void displayDoctor(int dummy) {
-        // Overloaded to print only the relevant details while fetching the patient's
-        // complete record.
-        this.displayEmployee(1/* Dummy Val */);
-        System.out.println("Department: " + this.department);
-        System.out.println("Job Title: " + this.jobTitle);
-    }
+    // public void displayDoctor(int dummy) {
+    //     // Overloaded to print only the relevant details while fetching the patient's
+    //     // complete record.
+    //     this.displayEmployee(1/* Dummy Val */);
+    //     System.out.println("Department: " + this.department);
+    //     System.out.println("Job Title: " + this.jobTitle);
+    // }
 
     public void displayPatientsAllotedTabular() {
         // Displays the IDs of the patients in the PatientsAssignedToDoc

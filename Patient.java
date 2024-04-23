@@ -12,7 +12,7 @@ public class Patient {
     private String Address;
     private String BloodGroup;
     private String Gender;
-    String[] DepartmentConcernedList = { "Rheumatology", "Cardiology", "Pediatry", "ENT", "Dental"};
+    String[] DepartmentConcernedList = { "Rheumatology", "Cardiology", "Pediatry", "ENT", "Dental" };
     private String DepartmentConcerned;
     private int Age;
 
@@ -24,52 +24,52 @@ public class Patient {
         System.out.print("PATIENT'S NAME: ");
         PatientName = scan.nextLine();
 
-            // GENDER INPUT
-            System.out.print("GENDER: ");
-            System.out.println("\n  1 => Male.");
-            System.out.println("  2 => Female.");
-            System.out.println("  3 => Others.");
-            int chooseGender = scan.nextInt();
-            switch(chooseGender)
-            {
+        // GENDER INPUT
+        System.out.print("GENDER: ");
+        System.out.println("\n  1 => Male.");
+        System.out.println("  2 => Female.");
+        System.out.println("  3 => Others.");
+        int chooseGender = scan.nextInt();
+        switch (chooseGender) {
+            case 1:
+                Gender = "Male";
+                break;
+            case 2:
+                Gender = "Female";
+                break;
+            case 3:
+                Gender = "Others";
+                break;
+        }
+
+        System.out.println("\nSelect Nature of Illness:");
+        System.out.println("1. Joint-Pain Issues");
+        System.out.println("2. Cardiac Issues");
+        System.out.println("3. Dietary Issues");
+        System.out.println("4. ENT Issues");
+        System.out.println("5. Dental Issues\n");
+
+        whileloop: while (true) {
+            System.out.print("Enter Choice: ");
+            int n = scan.nextInt();
+            switch (n) {
                 case 1:
-                    Gender = "Male"; break;
+                    DepartmentConcerned = DepartmentConcernedList[0];
+                    break whileloop;
                 case 2:
-                    Gender = "Female"; break;
+                    DepartmentConcerned = DepartmentConcernedList[1];
+                    break whileloop;
                 case 3:
-                    Gender = "Others"; break;
-            }
+                    DepartmentConcerned = DepartmentConcernedList[2];
+                    break whileloop;
+                case 4:
+                    DepartmentConcerned = DepartmentConcernedList[3];
+                    break whileloop;
+                case 5:
+                    DepartmentConcerned = DepartmentConcernedList[4];
+                    break whileloop;
 
-            System.out.println("\nSelect Nature of Illness:");
-            System.out.println("1. Joint-Pain Issues");
-            System.out.println("2. Cardiac Issues");
-            System.out.println("3. Dietary Issues");
-            System.out.println("4. ENT Issues");
-            System.out.println("5. Dental Issues\n");
-    
-            whileloop: while (true) 
-            {
-                System.out.print("Enter Choice: ");
-                int n = scan.nextInt();
-                switch (n) 
-                {
-                    case 1:
-                    DepartmentConcerned  = DepartmentConcernedList[0];
-                        break whileloop;
-                    case 2:
-                    DepartmentConcerned  = DepartmentConcernedList[1];
-                        break whileloop;  
-                    case 3:
-                    DepartmentConcerned  = DepartmentConcernedList[2];
-                        break whileloop;  
-                    case 4:
-                    DepartmentConcerned  = DepartmentConcernedList[3];
-                        break whileloop;  
-                    case 5:
-                    DepartmentConcerned  = DepartmentConcernedList[4];
-                        break whileloop;
-
-                    default:
+                default:
                     System.out.println("Please select a valid option");
                     break;
             }
@@ -78,92 +78,85 @@ public class Patient {
         // Alloting Doctor to the Patient.
         this.allot_Doctor(dat);
 
-            // Alloting Nurse to the Patient.
-            this.allot_Nurse(dat);
+        // Alloting Nurse to the Patient.
+        this.allot_Nurse(dat);
 
-            // AGE INPUT:
-            System.out.print("ENTER AGE: ");
-            while(true)
-            {
-                try
-                {
-                    Age = scan.nextInt();
-                }
-                catch(InputMismatchException input)
-                {
-                    System.out.println("Invalid Age. Please enter a valid integer as age : ");
-                    scan.next();
-                    continue;
-                }
-
-                if(Age < 0)
-                {
-                    System.out.println("Invalid Age. Enter the Age again : ");
-                    continue;
-                }
-                else break;
+        // AGE INPUT:
+        System.out.print("ENTER AGE: ");
+        while (true) {
+            try {
+                Age = scan.nextInt();
+            } catch (InputMismatchException input) {
+                System.out.println("Invalid Age. Please enter a valid integer as age : ");
+                scan.next();
+                continue;
             }
 
+            if (Age < 0) {
+                System.out.println("Invalid Age. Enter the Age again : ");
+                continue;
+            } else
+                break;
+        }
 
-            System.out.print("\nENTER CONTACT NUMBER: ");
-            scan.next();
-            while(true)
-            {
-                Contact_No = scan.nextLine();
-                System.out.println();
-                if(!Contact_No.matches("^\\d{10}$"))
-                {
-                    System.out.println("Invalid Contact Number....\n  Enter Contact Number again : ");
-                }
-                else
+        System.out.print("\nENTER CONTACT NUMBER: ");
+        scan.next();
+        while (true) {
+            Contact_No = scan.nextLine();
+            System.out.println();
+            if (!Contact_No.matches("^\\d{10}$")) {
+                System.out.println("Invalid Contact Number....\n  Enter Contact Number again : ");
+            } else
+                break;
+        }
+
+        // BLOODGROUP INPUT
+        BGLOOP: while (true) {
+
+            System.out.println("SELECT BLOOD GROUP: ");
+            System.out.println("  1 => A+");
+            System.out.println("  2 => A-");
+            System.out.println("  3 => B+");
+            System.out.println("  4 => B-");
+            System.out.println("  5 => AB+");
+            System.out.println("  6 => AB-");
+            System.out.println("  7 => O+");
+            System.out.println("  8 => O-");
+            int chooseBG = scan.nextInt();
+
+            switch (chooseBG) {
+                case 1:
+                    BloodGroup = "A+";
+                    break BGLOOP;
+                case 2:
+                    BloodGroup = "A-";
+                    break BGLOOP;
+                case 3:
+                    BloodGroup = "B+";
+                    break BGLOOP;
+                case 4:
+                    BloodGroup = "B-";
+                    break BGLOOP;
+                case 5:
+                    BloodGroup = "AB+";
+                    break BGLOOP;
+                case 6:
+                    BloodGroup = "AB-";
+                    break BGLOOP;
+                case 7:
+                    BloodGroup = "O+";
+                    break BGLOOP;
+                case 8:
+                    BloodGroup = "O-";
+                    break BGLOOP;
+                default:
+                    System.out.println("\nPlease Select Valid Blood Group....");
                     break;
             }
-            
-
-            // BLOODGROUP INPUT
-            BGLOOP: while(true)
-            {
-
-                System.out.println("SELECT BLOOD GROUP: ");
-                System.out.println("  1 => A+");
-                System.out.println("  2 => A-");
-                System.out.println("  3 => B+");
-                System.out.println("  4 => B-");
-                System.out.println("  5 => AB+");
-                System.out.println("  6 => AB-");
-                System.out.println("  7 => O+");
-                System.out.println("  8 => O-");
-                int chooseBG = scan.nextInt();
-
-                switch(chooseBG)
-                {
-                    case 1:
-                        BloodGroup = "A+"; break BGLOOP;
-                    case 2:
-                        BloodGroup = "A-"; break BGLOOP;
-                    case 3:
-                        BloodGroup = "B+"; break BGLOOP;
-                    case 4:
-                        BloodGroup = "B-"; break BGLOOP;
-                    case 5:
-                        BloodGroup = "AB+"; break BGLOOP;
-                    case 6:
-                        BloodGroup = "AB-"; break BGLOOP;
-                    case 7:
-                        BloodGroup = "O+"; break BGLOOP;
-                    case 8:
-                        BloodGroup = "O-"; break BGLOOP;
-                    default:
-                        System.out.println("\nPlease Select Valid Blood Group....");
-                        break;
-                }
-            }
+        }
 
         System.out.print("ADDRESS: ");
         Address = scan.nextLine();
-
-            
-                 
 
     }
 
@@ -213,14 +206,38 @@ public class Patient {
     }
 
     public void getPatientReport(DataBase dat) {
-        this.displayPatient();
+        System.out.println(
+                "\n---------------------------------------------------PATIENTS - RECORDS---------------------------------------------------------------");
+        System.out.printf("| %-3s |", "ID");
+        System.out.printf("| %-12s |", "Name");
+        System.out.printf("| %-10s |", "Phone No");
+        System.out.printf("| %-1s |", "B-GP");
+        System.out.printf("| %-7s |", "Gender");
+        System.out.printf("| %-30s |", "Address");
+        System.out.printf("| %-1s |", "Age");
+        System.out.printf("| %-11s |", "Physician");
+        System.out.printf("| %-1s |", "Doc ID");
+        System.out.printf("| %-1s |", "Nur ID");
+        System.out.println();
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------------");
+        this.displayPatient(1);
         // now displaying details of the doctor alloted
         Iterator<Doctor> iterator = dat.docData.iterator();
         while (iterator.hasNext()) {
             Doctor doc = iterator.next();
             if (doc.get_Id() == this.allottedDoctorID) {
                 System.out.println("\nDoctor Alloted: ");
-                doc.displayDoctor(1);
+                System.out.println(
+                        "\n---------------------------------------------------DOCTOR - DETAILS---------------------------------------------------------------");
+                System.out.printf("| %-19s |", "Name");
+                System.out.printf("| %-3s |", "ID");
+                System.out.printf("| %-12s |", "Department");
+                System.out.printf("| %-15s |", "Job Title");
+                System.out.println();
+                System.out.println(
+                        "-----------------------------------------------------------------");
+                doc.displayDoctorTabular(1);
                 break;
             }
         }
@@ -230,7 +247,14 @@ public class Patient {
             Nurse nur = iterator2.next();
             if (nur.get_Id() == this.allottedNurseID) {
                 System.out.println("\nNurse Alloted: ");
-                nur.displayNurse(1);
+                System.out.println(
+                        "\n---------------------------------------------------NURSES - DETAILS-----------------------------------------------------------------");
+                System.out.printf("| %-19s |", "Name");
+                System.out.printf("| %-3s |", "ID");
+                System.out.println();
+                System.out.println(
+                        "------------------------------");
+                nur.displayNurseTabular(2);
                 break;
             }
         }
@@ -238,13 +262,13 @@ public class Patient {
 
     public void displayPatient(int dummy) {
         // System.out.println("-------------------------------------------------------------");
-        // System.out.println("|                    Patient Details                         |");
+        // System.out.println("| Patient Details |");
         // System.out.println("-------------------------------------------------------------");
 
         // Print field names
         // System.out.printf("| %-1s |", "Field");
         // System.out.println("-------------------------------------------------------------");
-        
+
         // System.out.println("-------------------------------------------------------------");
 
         // Print corresponding values
@@ -261,7 +285,8 @@ public class Patient {
         System.out.printf("| %-6s |", this.allottedDoctorID);
         System.out.printf("| %-6s |", this.allottedNurseID);
         System.out.println();
-        System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------------");
     }
 
     // public void displayPatient() {
@@ -311,18 +336,17 @@ public class Patient {
     // }
 
     // function for printing single patient
-    public void displayPatient()
-    {
-    System.out.println("-------------------------------------------------");
-    System.out.println("\t\tPatient ID: "+ PatientID);
-    System.out.println("\nFULL NAME: " + PatientName);
-    System.out.println("CONTACT NUMBER: " + Contact_No);
-    System.out.println("BLOOD GROUP: " + BloodGroup);
-    System.out.println("GENDER: " + Gender);
-    System.out.println("ADDRESS: " + Address);
-    System.out.println("AGE: " + Age);
-    System.out.println("Consulting Physician: " + DepartmentConcerned);
-    System.out.println("Alloted Doctor ID: "+ allottedDoctorID);
-    System.out.println("Alloted Nurse ID: "+ allottedNurseID);
+    public void displayPatient() {
+        System.out.println("-------------------------------------------------");
+        System.out.println("\t\tPatient ID: " + PatientID);
+        System.out.println("\nFULL NAME: " + PatientName);
+        System.out.println("CONTACT NUMBER: " + Contact_No);
+        System.out.println("BLOOD GROUP: " + BloodGroup);
+        System.out.println("GENDER: " + Gender);
+        System.out.println("ADDRESS: " + Address);
+        System.out.println("AGE: " + Age);
+        System.out.println("Consulting Physician: " + DepartmentConcerned);
+        System.out.println("Alloted Doctor ID: " + allottedDoctorID);
+        System.out.println("Alloted Nurse ID: " + allottedNurseID);
     }
 }

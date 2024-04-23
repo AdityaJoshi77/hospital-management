@@ -3,8 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
-public class Employee 
-{
+public class Employee {
     String employeeName;
     int salary;
     String type;
@@ -28,25 +27,36 @@ public class Employee
         this.type = type;
     }
 
-
-    
-    public void displayEmployeeTabular() 
-    {   
+    public void displayEmployeeTabular() {
         // System.out.println("-------------------------------------------------");
         System.out.printf("| %-19s |", this.employeeName);
         System.out.printf("| %-8s |", this.salary);
 
     }
 
+    // for patient medical record
+    public void displayEmployeeTabular(int dummy) {
+        if (dummy == 1) {
+            // doctor called this
+        System.out.println("-----------------------------------------------------------------");
+        }
+        else{
+            // nurse called this
+            System.out.println("------------------------------");
+
+        }
+        System.out.printf("| %-19s |", this.employeeName);
+    }
+
     // function for printing single employee
-    public void displayEmployee() 
-    {   
+    public void displayEmployee() {
         System.out.println("\nFULL NAME: " + employeeName);
         System.out.println("Salary: " + salary);
     }
-    public void displayEmployee(int dummy) 
-    {   
-        System.out.println("-------------------------------------------------");
-        System.out.println("\nFULL NAME: " + employeeName);
-    }
+
+
+    // // for medical record
+    // public void displayEmployee(int dummy) {
+    //     System.out.println("\nFULL NAME: " + employeeName);
+    // }
 }
