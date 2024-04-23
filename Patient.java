@@ -149,7 +149,7 @@ public class Patient {
         }
     }
 
-    public void displayPatient() {
+    public void displayPatient(int dummy) {
         // System.out.println("-------------------------------------------------------------");
         // System.out.println("|                    Patient Details                         |");
         // System.out.println("-------------------------------------------------------------");
@@ -223,18 +223,19 @@ public class Patient {
     // System.out.println("-------------------------------------------------");
     // }
 
-    // public void displayPatient()
-    // {
-    // System.out.println("-------------------------------------------------");
-    // System.out.println("\t\tPatient ID: "+ PatientID);
-    // System.out.println("\nFULL NAME: " + PatientName);
-    // System.out.println("CONTACT NUMBER: " + Contact_No);
-    // System.out.println("BLOOD GROUP: " + BloodGroup);
-    // System.out.println("GENDER: " + Gender);
-    // System.out.println("ADDRESS: " + Address);
-    // System.out.println("AGE: " + Age);
-    // System.out.println("Consulting Physician: " + DepartmentConcerned);
-    // System.out.println("Alloted Doctor ID: "+ allottedDoctorID);
-    // System.out.println("Alloted Nurse ID: "+ allottedNurseID);
-    // }
+    // function for printing single patient
+    public void displayPatient()
+    {
+    System.out.println("-------------------------------------------------");
+    System.out.println("\t\tPatient ID: "+ PatientID);
+    System.out.println("\nFULL NAME: " + PatientName);
+    System.out.println("CONTACT NUMBER: " + Contact_No);
+    System.out.println("BLOOD GROUP: " + BloodGroup);
+    System.out.println("GENDER: " + Gender);
+    System.out.println("ADDRESS: " + Address);
+    System.out.println("AGE: " + Age);
+    System.out.println("Consulting Physician: " + DepartmentConcerned);
+    System.out.println("Alloted Doctor ID: "+ allottedDoctorID);
+    System.out.println("Alloted Nurse ID: "+ allottedNurseID);
+    }
 }

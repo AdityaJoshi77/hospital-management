@@ -165,7 +165,7 @@ public class DataBase
         for(Patient pat : this.patData)
         {
 
-            pat.displayPatient();
+            pat.displayPatient(1);
         }
     }
 
@@ -184,7 +184,7 @@ public class DataBase
         for(Doctor doc : this.docData)
         {
 
-            doc.displayDoctor();
+            doc.displayDoctorTabular();
         }
     }
 
@@ -202,7 +202,7 @@ public class DataBase
         for(Nurse nur : this.nurData)
         {
 
-            nur.displayNurse();
+            nur.displayNurseTabular();
         }
     }
 

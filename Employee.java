@@ -30,7 +30,7 @@ public class Employee
 
 
     
-    public void displayEmployee() 
+    public void displayEmployeeTabular() 
     {   
         // System.out.println("-------------------------------------------------");
         System.out.printf("| %-19s |", this.employeeName);
@@ -38,14 +38,13 @@ public class Employee
 
     }
 
-
-    // public void displayEmployee() 
-    // {   
-    //     System.out.println("-------------------------------------------------");
-    //     System.out.println("\nFULL NAME: " + employeeName);
-    //     System.out.println("Salary: " + salary);
-    // }
-
+    // function for printing single employee
+    public void displayEmployee() 
+    {   
+        System.out.println("-------------------------------------------------");
+        System.out.println("\nFULL NAME: " + employeeName);
+        System.out.println("Salary: " + salary);
+    }
     public void displayEmployee(int dummy) 
     {   
         System.out.println("-------------------------------------------------");

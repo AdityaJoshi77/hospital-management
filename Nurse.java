@@ -48,22 +48,24 @@ public class Nurse extends Employee {
     }
 
     
-    public void displayNurse() 
+    public void displayNurseTabular() 
     {
-        this.displayEmployee(/*Dummy Val*/);
+        this.displayEmployeeTabular();
         System.out.printf("| %-3s |", this.get_Id());
         System.out.printf("| %-23s |", this.numberOfPatientsAssigned);
-        this.displayPatientsAlloted();
+        this.displayPatientsAllotedTabular();
         System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
     }
 
-    // public void displayNurse() 
-    // {
-    //     this.displayEmployee();
-    //     System.out.println("Nurse ID: "+get_Id());
-    //     System.out.println("Number of Patients Assigned: " + numberOfPatientsAssigned);
-    //     this.displayPatientsAlloted();
-    // }
+    
+    // function for printing single nurse
+    public void displayNurse() 
+    {
+        this.displayEmployee();
+        System.out.println("Nurse ID: "+get_Id());
+        System.out.println("Number of Patients Assigned: " + numberOfPatientsAssigned);
+        this.displayPatientsAlloted();
+    }
 
     public void displayNurse(int dummy) 
     {   
@@ -72,14 +74,23 @@ public class Nurse extends Employee {
     }
 
     
+    public void displayPatientsAllotedTabular()
+    {
+        // Displays the IDs of the patients in the PatientsAssignedToNur 
+        // ArrayList of the Nurse.
+        for (Integer patID : this.PatientsAssignedToNur) {
+            System.out.printf("| %-1s", patID);
+        }
+        System.out.println();
+    }
+
     public void displayPatientsAlloted()
     {
         // Displays the IDs of the patients in the PatientsAssignedToNur 
         // ArrayList of the Nurse.
-        // System.out.print("ID of patients allotted: ");
+        System.out.print("ID of patients allotted: ");
         for (Integer patID : this.PatientsAssignedToNur) {
-            // System.out.print(patID + ", ");
-            System.out.printf("| %-1s", patID);
+            System.out.print(patID + ", ");
         }
         System.out.println();
     }

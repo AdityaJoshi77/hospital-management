@@ -72,27 +72,29 @@ public class Doctor extends Employee {
         return this.DoctorID;
     }
 
-    public void displayDoctor() {
-        this.displayEmployee(/* Dummy Val */);
+    public void displayDoctorTabular() {
+        this.displayEmployeeTabular();
         System.out.printf("| %-3s |", this.get_Id());
         System.out.printf("| %-12s |", this.department);
         System.out.printf("| %-15s |", this.jobTitle);
         System.out.printf("| %-23s |", this.numberOfPatientsAssigned);
-        this.displayPatientsAlloted();
+        this.displayPatientsAllotedTabular();
         System.out.println(
                 "------------------------------------------------------------------------------------------------------------------------------------");
     }
 
-    // public void displayDoctor()
-    // {
-    // this.displayEmployee(/*Dummy Val*/);
-    // System.out.println("Doctor ID: "+get_Id());
-    // System.out.println("Department: "+this.department);
-    // System.out.println("Job Title: "+this.jobTitle);
-    // System.out.println("Number of Patients Assigned: " +
-    // numberOfPatientsAssigned);
-    // this.displayPatientsAlloted();
-    // }
+
+    // function for printing single doctor
+    public void displayDoctor()
+    {
+    this.displayEmployee(/*Dummy Val*/);
+    System.out.println("Doctor ID: "+get_Id());
+    System.out.println("Department: "+this.department);
+    System.out.println("Job Title: "+this.jobTitle);
+    System.out.println("Number of Patients Assigned: " +
+    numberOfPatientsAssigned);
+    this.displayPatientsAlloted();
+    }
 
     public void displayDoctor(int dummy) {
         // Overloaded to print only the relevant details while fetching the patient's
@@ -102,7 +104,7 @@ public class Doctor extends Employee {
         System.out.println("Job Title: " + this.jobTitle);
     }
 
-    public void displayPatientsAlloted() {
+    public void displayPatientsAllotedTabular() {
         // Displays the IDs of the patients in the PatientsAssignedToDoc
         // ArrayList of the Doctor.
         // System.out.print("ID of patients allotted: ");
@@ -112,6 +114,17 @@ public class Doctor extends Employee {
         }
         System.out.println();
     }
+
+    public void displayPatientsAlloted() {
+        // Displays the IDs of the patients in the PatientsAssignedToDoc
+        // ArrayList of the Doctor.
+        System.out.print("ID of patients allotted: ");
+        for (Integer patID : this.PatientsAssignedToDoc) {
+            System.out.print(patID + ", ");
+        }
+        System.out.println();
+    }
+
 
     public void setNumberOfPatientsAssigned(int incDec) {
         if (incDec == 1)
