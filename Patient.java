@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.IOError;
+import java.io.IOException;
 import java.util.*;
 
 import javax.print.Doc;
@@ -16,7 +19,8 @@ public class Patient {
     private String DepartmentConcerned;
     private int Age;
 
-    public Patient(DataBase dat) {
+    public Patient(DataBase dat){
+
         PatientID = ++PatientID_Gen;
 
         Scanner scan = new Scanner(System.in);
@@ -25,21 +29,27 @@ public class Patient {
         PatientName = scan.nextLine();
 
         // GENDER INPUT
-        System.out.print("GENDER: ");
-        System.out.println("\n  1 => Male.");
-        System.out.println("  2 => Female.");
-        System.out.println("  3 => Others.");
-        int chooseGender = scan.nextInt();
-        switch (chooseGender) {
-            case 1:
-                Gender = "Male";
-                break;
-            case 2:
-                Gender = "Female";
-                break;
-            case 3:
-                Gender = "Others";
-                break;
+        genderLoop:while(true)
+        {
+            System.out.print("GENDER: ");
+            System.out.println("\n  1 => Male.");
+            System.out.println("  2 => Female.");
+            System.out.println("  3 => Others.");
+            int chooseGender = scan.nextInt();
+            switch (chooseGender) {
+                case 1:
+                    Gender = "Male";
+                    break genderLoop;
+                case 2:
+                    Gender = "Female";
+                    break genderLoop;
+                case 3:
+                    Gender = "Others";
+                    break genderLoop;
+                default:
+                    System.out.println("Select Valid Gender...");
+                    break;
+            }
         }
 
         System.out.println("\nSelect Nature of Illness:");
@@ -49,6 +59,7 @@ public class Patient {
         System.out.println("4. ENT Issues");
         System.out.println("5. Dental Issues\n");
 
+        
         whileloop: while (true) {
             System.out.print("Enter Choice: ");
             int n = scan.nextInt();
@@ -83,8 +94,10 @@ public class Patient {
 
         // AGE INPUT:
         System.out.print("ENTER AGE: ");
-        while (true) {
-            try {
+        while (true) 
+        {
+            try 
+            {
                 Age = scan.nextInt();
             } catch (InputMismatchException input) {
                 System.out.println("Invalid Age. Please enter a valid integer as age : ");
@@ -99,11 +112,14 @@ public class Patient {
                 break;
         }
 
+        scan.nextLine(); // To clear the \n from the input buffer.
         System.out.print("\nENTER CONTACT NUMBER: ");
-        scan.next();
-        while (true) {
+        while(true) 
+        {
             Contact_No = scan.nextLine();
-            System.out.println();
+            System.out.println("Contact Number == " + Contact_No);
+    
+            // System.out.println();
             if (!Contact_No.matches("^\\d{10}$")) {
                 System.out.println("Invalid Contact Number....\n  Enter Contact Number again : ");
             } else
@@ -155,7 +171,8 @@ public class Patient {
             }
         }
 
-        System.out.print("ADDRESS: ");
+        System.out.print("ENTER ADDRESS: ");
+        scan.nextLine();
         Address = scan.nextLine();
 
     }
