@@ -17,7 +17,8 @@ public class Admin {
             System.out.println("1. Patient Records.");
             System.out.println("2. Doctor Records.");
             System.out.println("3. Nurse Records.");
-            System.out.println("4. Exit");
+            System.out.println("4. Calibrate Database.");
+            System.out.println("5. Exit");
             System.out.print("Enter Choice: ");
             int choice = scan.nextInt();
             switch (choice) 
@@ -200,6 +201,12 @@ public class Admin {
                     break;
                 }// End of Case:3(Nurse)
                 case 4:
+                /*
+                 * Calibrating Database
+                 */
+                dat.CalibrateDatabase();
+                break;
+                case 5:
                     System.exit(0);
             }
         }
