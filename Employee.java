@@ -54,9 +54,4 @@ public class Employee {
         System.out.println("Salary: " + salary);
     }
 
-
-    // // for medical record
-    // public void displayEmployee(int dummy) {
-    //     System.out.println("\nFULL NAME: " + employeeName);
-    // }
 }

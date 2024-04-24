@@ -82,8 +82,8 @@ public class Doctor extends Employee {
         System.out.println(
                 "------------------------------------------------------------------------------------------------------------------------------------");
     }
-    
-    // gfor patient medical record
+
+    // for patient medical record
     public void displayDoctorTabular(int dummy) {
         this.displayEmployeeTabular(1);
         System.out.printf("| %-3s |", this.get_Id());
@@ -106,17 +106,11 @@ public class Doctor extends Employee {
         this.displayPatientsAlloted();
     }
 
-    // public void displayDoctor(int dummy) {
-    //     // Overloaded to print only the relevant details while fetching the patient's
-    //     // complete record.
-    //     this.displayEmployee(1/* Dummy Val */);
-    //     System.out.println("Department: " + this.department);
-    //     System.out.println("Job Title: " + this.jobTitle);
-    // }
-
     public void displayPatientsAllotedTabular() {
-        // Displays the IDs of the patients in the PatientsAssignedToDoc
-        // ArrayList of the Doctor.
+        /*
+         * Displays the IDs of the patients in the PatientsAssignedToDoc
+         * ArrayList of the Doctor.
+         */
         // System.out.print("ID of patients allotted: ");
         for (Integer patID : this.PatientsAssignedToDoc) {
             // System.out.print(patID + ", ");
@@ -126,8 +120,10 @@ public class Doctor extends Employee {
     }
 
     public void displayPatientsAlloted() {
-        // Displays the IDs of the patients in the PatientsAssignedToDoc
-        // ArrayList of the Doctor.
+        /*
+         * Displays the IDs of the patients in the PatientsAssignedToDoc
+         * ArrayList of the Doctor.
+         */
         System.out.print("ID of patients allotted: ");
         for (Integer patID : this.PatientsAssignedToDoc) {
             System.out.print(patID + ", ");
@@ -137,14 +133,16 @@ public class Doctor extends Employee {
 
     public void setNumberOfPatientsAssigned(int incDec) {
         if (incDec == 1)
-            // If a patient is alloted to the ArrayList of the Doctor (denoted by incDec ==
-            // 1)
-            // numberOfPatientsAssigned is incremented.
+            /*
+             * If a patient is alloted to the ArrayList of the Doctor
+             * (denoted by incDec== 1), numberOfPatientsAssigned is incremented.
+             */
             this.numberOfPatientsAssigned++;
         else
-            // If a patient is removed from the ArrayList of the Doctor (denoted by incDec
-            // == 0)
-            // numberOfPatientsAssigned is decremented.
+            /*
+             * If a patient is removed from the ArrayList of the Doctor
+             * (denoted by incDec == 0), numberOfPatientsAssigned is decremented.
+             */
             this.numberOfPatientsAssigned--;
     }
 }

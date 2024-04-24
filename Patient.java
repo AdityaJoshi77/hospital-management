@@ -19,7 +19,7 @@ public class Patient {
     private String DepartmentConcerned;
     private int Age;
 
-    public Patient(DataBase dat){
+    public Patient(DataBase dat) {
 
         PatientID = ++PatientID_Gen;
 
@@ -29,8 +29,7 @@ public class Patient {
         PatientName = scan.nextLine();
 
         // GENDER INPUT
-        genderLoop:while(true)
-        {
+        genderLoop: while (true) {
             System.out.print("GENDER: ");
             System.out.println("\n  1 => Male.");
             System.out.println("  2 => Female.");
@@ -59,7 +58,6 @@ public class Patient {
         System.out.println("4. ENT Issues");
         System.out.println("5. Dental Issues\n");
 
-        
         whileloop: while (true) {
             System.out.print("Enter Choice: ");
             int n = scan.nextInt();
@@ -94,10 +92,8 @@ public class Patient {
 
         // AGE INPUT:
         System.out.print("ENTER AGE: ");
-        while (true) 
-        {
-            try 
-            {
+        while (true) {
+            try {
                 Age = scan.nextInt();
             } catch (InputMismatchException input) {
                 System.out.println("Invalid Age. Please enter a valid integer as age : ");
@@ -114,11 +110,10 @@ public class Patient {
 
         scan.nextLine(); // To clear the \n from the input buffer.
         System.out.print("\nENTER CONTACT NUMBER: ");
-        while(true) 
-        {
+        while (true) {
             Contact_No = scan.nextLine();
             System.out.println("Contact Number == " + Contact_No);
-    
+
             // System.out.println();
             if (!Contact_No.matches("^\\d{10}$")) {
                 System.out.println("Invalid Contact Number....\n  Enter Contact Number again : ");
@@ -197,10 +192,12 @@ public class Patient {
     }
 
     public void allot_Doctor(DataBase dat) {
-        // the allot_Nurse() function (belonging to the Patient Class) and the
-        // assign_Nurse() function (belonging to the Doctor Class) act as interface
-        // between the Patient Class and the DataBase Class
-        // for the purpose of information exchange.
+        /*
+         * the allot_Nurse() function (belonging to the Patient Class) and the
+         * assign_Nurse() function (belonging to the Doctor Class) act as interface
+         * between the Patient Class and the DataBase Class
+         * for the purpose of information exchange.
+         */
 
         this.allottedDoctorID = dat.assign_Doctor(this.DepartmentConcerned, this.get_Id());
     }
@@ -209,17 +206,27 @@ public class Patient {
         return this.allottedDoctorID;
     }
 
+    public void setAllotedDoctor(int val) {
+        this.allottedDoctorID = val;
+    }
+
     public void allot_Nurse(DataBase dat) {
-        // the allot_Nurse() function (belonging to the Patient Class) and the
-        // assign_Nurse() function (belonging to the Doctor Class) act as interface
-        // between the Patient Class and the DataBase Class
-        // for the purpose of information exchange.
+        /*
+         * the allot_Nurse() function (belonging to the Patient Class) and the
+         * assign_Nurse() function (belonging to the Doctor Class) act as interface
+         * between the Patient Class and the DataBase Class
+         * for the purpose of information exchange.
+         */
 
         this.allottedNurseID = dat.assign_Nurse(this.get_Id());
     }
 
     public int getAllotedNurse() {
         return this.allottedNurseID;
+    }
+
+    public void setAllotedNurse(int val) {
+        this.allottedNurseID = val;
     }
 
     public void getPatientReport(DataBase dat) {
@@ -278,19 +285,6 @@ public class Patient {
     }
 
     public void displayPatient(int dummy) {
-        // System.out.println("-------------------------------------------------------------");
-        // System.out.println("| Patient Details |");
-        // System.out.println("-------------------------------------------------------------");
-
-        // Print field names
-        // System.out.printf("| %-1s |", "Field");
-        // System.out.println("-------------------------------------------------------------");
-
-        // System.out.println("-------------------------------------------------------------");
-
-        // Print corresponding values
-        // System.out.printf("| %-1s |", "Value");
-        // System.out.println("-------------------------------------------------------------");
         System.out.printf("| %-3s |", this.PatientID);
         System.out.printf("| %-12s |", this.PatientName);
         System.out.printf("| %-1s |", this.Contact_No);
@@ -305,52 +299,6 @@ public class Patient {
         System.out.println(
                 "------------------------------------------------------------------------------------------------------------------------------------");
     }
-
-    // public void displayPatient() {
-    // System.out.println("-------------------------------------------------------------");
-    // System.out.println("| Patient Details |");
-    // System.out.println("-------------------------------------------------------------");
-
-    // // Print data members (fields) in the first row
-    // System.out.printf("| %-20s | %-30s |\n", "Field", "Value");
-    // System.out.println("-------------------------------------------------------------");
-
-    // // Print values in the next row
-    // System.out.printf("| %-20s | %-30s |\n", "Patient ID", PatientID);
-    // System.out.printf("| %-20s | %-30s |\n", "FULL NAME", PatientName);
-    // System.out.printf("| %-20s | %-30s |\n", "CONTACT NUMBER", Contact_No);
-    // System.out.printf("| %-20s | %-30s |\n", "BLOOD GROUP", BloodGroup);
-    // System.out.printf("| %-20s | %-30s |\n", "GENDER", Gender);
-    // System.out.printf("| %-20s | %-30s |\n", "ADDRESS", Address);
-    // System.out.printf("| %-20s | %-30s |\n", "AGE", Age);
-    // System.out.printf("| %-20s | %-30s |\n", "Consulting Physician",
-    // DepartmentConcerned);
-    // System.out.printf("| %-20s | %-30s |\n", "Alloted Doctor ID",
-    // allottedDoctorID);
-    // System.out.printf("| %-20s | %-30s |\n", "Alloted Nurse ID",
-    // allottedNurseID);
-    // System.out.println("-------------------------------------------------------------");
-    // }
-
-    // public void displayPatient() {
-    // System.out.println("-------------------------------------------------");
-    // System.out.println("| Patient Details |");
-    // System.out.println("-------------------------------------------------");
-    // System.out.printf("| %-20s | %-30s |\n", "Patient ID:", PatientID);
-    // System.out.printf("| %-20s | %-30s |\n", "FULL NAME:", PatientName);
-    // System.out.printf("| %-20s | %-30s |\n", "CONTACT NUMBER:", Contact_No);
-    // System.out.printf("| %-20s | %-30s |\n", "BLOOD GROUP:", BloodGroup);
-    // System.out.printf("| %-20s | %-30s |\n", "GENDER:", Gender);
-    // System.out.printf("| %-20s | %-30s |\n", "ADDRESS:", Address);
-    // System.out.printf("| %-20s | %-30s |\n", "AGE:", Age);
-    // System.out.printf("| %-20s | %-30s |\n", "Consulting Physician:",
-    // DepartmentConcerned);
-    // System.out.printf("| %-20s | %-30s |\n", "Alloted Doctor ID:",
-    // allottedDoctorID);
-    // System.out.printf("| %-20s | %-30s |\n", "Alloted Nurse ID:",
-    // allottedNurseID);
-    // System.out.println("-------------------------------------------------");
-    // }
 
     // function for printing single patient
     public void displayPatient() {
