@@ -3,18 +3,19 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
-public class Employee {
+public class Employee 
+{
     String employeeName;
     int salary;
     String type;
 
-    public Employee() throws IOException {
-        BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
+    public Employee() throws IOException 
+    {
         Scanner scan = new Scanner(System.in);
 
         System.out.print("\nEmployee's Name: ");
         // employeeName = scan.nextLine();
-        employeeName = bfr.readLine();
+        employeeName = scan.nextLine();
 
         System.out.print("Salary: ");
         salary = scan.nextInt();

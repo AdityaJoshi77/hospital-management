@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class Admin {
     public static void main(String[] args) throws IOException 
     {
-        DataBase dat = new DataBase();
-        dat.initiateDatabase();
+        DataBase dat = new DataBase(); 
+        dat.initiateDatabase(); // Assigns Doctors to the dummy patients according to their health-issues.
         Scanner scan = new Scanner(System.in);
         while (true) 
         {
