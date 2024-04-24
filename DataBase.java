@@ -296,19 +296,40 @@ public class DataBase
 
         // assign_Doctor() assigns the ID of a Doctor whose department matches with the 
         // Patient's health issues on the basis of the String dept as
-        Iterator<Doctor> iterator = this.docData.iterator();
-        while (iterator.hasNext()) 
+        
+        Integer minAllotPatient = Integer.MAX_VALUE;
+        int allotDocId = -1;
+        /*
+         * The following iterator searchs for the ID of the speacilist
+         * who has minimum number of patients alloted to him
+         */
+        for(Doctor doc: this.docData)
         {
-           Doctor doc  = iterator.next();
            if (dept.equals(doc.department)) 
            {
-                
+                if(minAllotPatient > doc.getNumberofPatientsAssigned())
+                {
+                    minAllotPatient = doc.getNumberofPatientsAssigned();
+                    allotDocId = doc.get_Id();
+                }  
+           }
+        }
+
+        /*
+         * The following iterator searches for the Doctor who has the same
+         * ID as found in the previous loop to assign the patient to him.
+         */
+        for(Doctor doc: this.docData)
+        {
+            if(allotDocId == doc.get_Id())
+            {
                 doc.PatientsAssignedToDoc.add(patId);
                 doc.setNumberOfPatientsAssigned(1);
                 System.out.println("Doctor assigned." );
                 return doc.get_Id();
-           }
+            }
         }
+        
         System.out.println("Doctor could not be assigned.");
             return -1;
     }

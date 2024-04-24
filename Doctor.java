@@ -13,6 +13,7 @@ public class Doctor extends Employee {
     String[] DocTypeDept = { "Rheumatology", "Cardiology", "Pediatric", "ENT", "Dental" };
     String[] DocTypeJobTitle = { "Rheumatologist", "Cardiologist", "Pediatrician", "ENT Specialist", "Dentist" };
     int numberOfPatientsAssigned = 0;
+    
 
     // Default Constructor
     public Doctor() throws IOException {
@@ -146,5 +147,10 @@ public class Doctor extends Employee {
             // == 0)
             // numberOfPatientsAssigned is decremented.
             this.numberOfPatientsAssigned--;
+    }
+
+    public int getNumberofPatientsAssigned()
+    {
+        return this.numberOfPatientsAssigned;
     }
 }
