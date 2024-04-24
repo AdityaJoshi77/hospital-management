@@ -359,4 +359,27 @@ public class DataBase {
         }
         return null;
     }
+
+    public void CalibrateDatabase() {
+        /*
+         * This function allots Doctor and Nurses to the Patients if they were removed
+         * earlier and now new Doctors and Nurses are added that can fulfill the
+         * requirement of the Patient.
+         */
+
+        for (Patient pat : this.patData) {
+            // Doctor is not yet allotted
+            if (pat.getAllotedDoctor() == -1) {
+                System.out.println("Calibrating Patient " + pat.get_Id() + " for Doctor");
+                this.assign_Doctor(pat.getDepartmentConcerned(), pat.get_Id());
+            }
+            // Nurse is not yet allotted
+            if (pat.getAllotedNurse() == -1) {
+                System.out.println("Calibrating Patient " + pat.get_Id() + " for Nurse");
+                this.assign_Nurse(pat.get_Id());
+            }
+        }
+
+        System.out.println("Calibrating Done.");
+    }
 }

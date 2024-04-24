@@ -191,6 +191,10 @@ public class Patient {
         return this.PatientID;
     }
 
+    public String getDepartmentConcerned() {
+        return this.DepartmentConcerned;
+    }
+
     public void allot_Doctor(DataBase dat) {
         /*
          * the allot_Nurse() function (belonging to the Patient Class) and the
