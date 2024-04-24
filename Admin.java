@@ -5,88 +5,106 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Admin {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException 
+    {
         DataBase dat = new DataBase();
         dat.initiateDatabase();
         Scanner scan = new Scanner(System.in);
-        while (true) {
+        while (true) 
+        {
             System.out.println("\n\n----------------- ADMIN PANEL ------------------");
             System.out.println("Enter your choice : ");
             System.out.println("1. Patient Records.");
             System.out.println("2. Doctor Records.");
             System.out.println("3. Nurse Records.");
-            System.out.println("4. Calibrate Database.");
-            System.out.println("5. Exit");
+            System.out.println("4. Exit");
             System.out.print("Enter Choice: ");
             int choice = scan.nextInt();
-            switch (choice) {
-                case 1: {
-                    System.out.println("\n-------- PATIENTS -----------------------------");
-                    System.out.println("1. Add Patient.");
-                    System.out.println("2. Remove Patient.");
-                    System.out.println("3. Search Patient");
-                    System.out.println("4. View All Patients");
-                    System.out.println("5. Print Medical Report Of Patient.");
-                    System.out.println("6. Back");
-                    System.out.print("Enter Choice: ");
-                    int choice1 = scan.nextInt();
-                    switch (choice1) {
-                        case 1:
-                            // Adding Patient
-
-                            Patient p1 = new Patient(dat);
-                            dat.patData.add(p1);
-                            System.out.println("\n\t\tDetails you entered: ");
-                            p1.displayPatient();
-                            break;
-
-                        case 2:
-                        // Removing Patient
-
+            switch (choice) 
+            {
+                case 1: 
+                {
+                    PATIENT_PANEL: while(true)
+                    {
+                        System.out.println("\n-------- PATIENTS -----------------------------");
+                        System.out.println("1. Add Patient.");
+                        System.out.println("2. Remove Patient.");
+                        System.out.println("3. Search Patient");
+                        System.out.println("4. View All Patients");
+                        System.out.println("5. Print Medical Report Of Patient.");
+                        System.out.println("6. Back");
+                        System.out.print("Enter Choice: ");
+                        int choice1 = scan.nextInt();
+                        switch (choice1) 
                         {
-                            System.out.print("Enter the ID of the Patient : ");
-                            int searchID = scan.nextInt();
-                            dat.removePatient(searchID);
-                            break;
+                            case 1:
+                            {
+                                // Adding Patient
+
+                                Patient p1 = new Patient(dat);
+                                dat.patData.add(p1);
+                                System.out.println("\n\t\tDetails you entered: ");
+                                p1.displayPatient();
+                                break;
+                            }
+
+                            case 2:
+                            // Removing Patient
+                            {
+                                System.out.print("Enter the ID of the Patient : ");
+                                int searchID = scan.nextInt();
+                                dat.removePatient(searchID);
+                                break;
+                            }
+
+                            case 3:
+                            // Searching Patient1
+                            {
+                                System.out.print("Enter Patient ID: ");
+                                int searchID = scan.nextInt();
+                                System.out.println("\nFetching Patient....................... \n");
+                                dat.searchPatient(searchID);
+                                break;
+                            }
+
+                            case 4:
+                            {
+                                // Display All Patients
+                                dat.displayAllPatients();
+
+                                break;
+                            }
+
+                            case 5: 
+                            {
+                                // Printing Patient Record.
+                                System.out.print("Enter ID of the Patient for the Medical Record:");
+                                int enterID = scan.nextInt();
+                                Patient foundPatient = dat.getPatient(enterID);
+                                foundPatient.getPatientReport(dat);
+                                break;
+                            }
+                            case 6:
+                            {
+                                // Back to main menu
+                                break PATIENT_PANEL;
+                            }
+                            default:
+                            {
+                                System.out.println("Enter Valid Choice.");
+                                continue;
+                            }
                         }
-
-                        case 3:
-                        // Searching Patient1
-
-                        {
-                            System.out.print("Enter Patient ID: ");
-                            int searchID = scan.nextInt();
-                            System.out.println("\nFetching Patient....................... \n");
-                            dat.searchPatient(searchID);
-                            break;
-                        }
-
-                        case 4:
-                            // Display All Patients
-                            dat.displayAllPatients();
-
-                            break;
-
-                        case 5: {
-                            // Printing Patient Record.
-                            System.out.print("Enter ID of the Patient for the Medical Record:");
-                            int enterID = scan.nextInt();
-                            Patient foundPatient = dat.getPatient(enterID);
-                            foundPatient.getPatientReport(dat);
-                            break;
-                        }
-                        case 6:
-                            // Back to main menu
-                            break;
-                        default:
-                            System.out.println("Enter Valid Choice.");
-                            break;
-                    }
+                        continue;
+                    }// End of Patient Panel.
                     break;
-                }
+                }// End of case 1(Patient);
 
-                case 2: {
-                    System.out.println("\n-------- DOCTORS -----------------------------");
+                case 2: 
+                {
+                    DOCTOR_PANEL: while(true)
+                    {
+                        System.out.println("\n-------- DOCTORS -----------------------------");
                     System.out.println("1. Add Doctor.");
                     System.out.println("2. Remove Doctor.");
                     System.out.println("3. Search Doctor");
@@ -101,10 +119,8 @@ public class Admin {
                             Doctor d1 = new Doctor();
                             dat.docData.add(d1);
                             System.out.println("Doctor added successfully...");
-                            /*
-                             * System.out.println("\n\nDetails you entered: ");
-                             * d1.displayDoctor();
-                             */
+                            // System.out.println("\n\nDetails you entered: ");
+                            // d1.displayDoctor();
                             break;
                         }
                         case 2: {
@@ -126,16 +142,21 @@ public class Admin {
                             break;
                         case 5:
                             // Back to main menu
-                            break;
+                            break DOCTOR_PANEL;
                         default:
                             System.out.println("Enter Valid Choice.");
-                            break;
+                            continue;
                     }
+                    continue;
+                    }// End of Doctor Panel.
                     break;
-                }
+                }// End of Case 2(Doctor).
 
                 case 3:
-                    System.out.println("\n-------- NURSES ----------------------------");
+                {
+                    NURSE_PANEL: while(true)
+                    {
+                        System.out.println("\n-------- NURSES ----------------------------");
                     System.out.println("1. Add Nurse.");
                     System.out.println("2. Remove Nurse.");
                     System.out.println("3. Search Nurse");
@@ -169,19 +190,16 @@ public class Admin {
                             break;
                         case 5:
                             // Back to main menu
-                            break;
+                            break NURSE_PANEL;
                         default:
                             System.out.println("Enter Valid Choice.");
-                            break;
+                            continue;
                     }
+                    continue;
+                    }// End of NURSE_PANEL.
                     break;
+                }// End of Case:3(Nurse)
                 case 4:
-                    /*
-                     * Calibrating Database
-                     */
-                    dat.CalibrateDatabase();
-                    break;
-                case 5:
                     System.exit(0);
             }
         }
