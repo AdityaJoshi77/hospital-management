@@ -393,14 +393,12 @@ public class DataBase {
             // Doctor is not yet allotted
             if (pat.getAllotedDoctor() == -1) {
                 System.out.println("Calibrating Patient " + pat.get_Id() + " for Doctor");
-                int doctorID = this.assign_Doctor(pat.getDepartmentConcerned(), pat.get_Id());
-                pat.setAllotedDoctor(doctorID);
+                this.assign_Doctor(pat.getDepartmentConcerned(), pat.get_Id());
             }
             // Nurse is not yet allotted
             if (pat.getAllotedNurse() == -1) {
                 System.out.println("Calibrating Patient " + pat.get_Id() + " for Nurse");
-               int nurseID =  this.assign_Nurse(pat.get_Id());
-               pat.setAllotedNurse(nurseID);
+                this.assign_Nurse(pat.get_Id());
             }
         }
 
