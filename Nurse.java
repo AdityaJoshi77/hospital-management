@@ -12,14 +12,16 @@ public class Nurse extends Employee {
 
     public void setNumberOfPatientsAssigned(int incDec) {
         if (incDec == 1)
-            // If a patient is alloted to the ArrayList of the Nurse (denoted by incDec ==
-            // 1)
-            // numberOfPatientsAssigned is incremented.
+            /*
+             * If a patient is alloted to the ArrayList of the Nurse
+             * (denoted by incDec == 1) numberOfPatientsAssigned is incremented.
+             */
             this.numberOfPatientsAssigned++;
         else
-            // If a patient is removed from the ArrayList of the Nurse (denoted by incDec ==
-            // 0)
-            // numberOfPatientsAssigned is decremented.
+            /*
+             * If a patient is removed from the ArrayList of the Nurse
+             * (denoted by incDec ==0) numberOfPatientsAssigned is decremented.
+             */
             this.numberOfPatientsAssigned--;
     }
 
@@ -30,7 +32,6 @@ public class Nurse extends Employee {
     public Nurse() throws IOException {
         NurseID = ++NurseID_Gen;
         type = "Nurse";
-        numberOfPatientsAssigned++;
     }
 
     // Dummy data constructor
@@ -70,15 +71,11 @@ public class Nurse extends Employee {
         this.displayPatientsAlloted();
     }
 
-    // public void displayNurse(int dummy) {
-    //     // Overloaded to print only the relevant details while fetching the patient's
-    //     // complete record.
-    //     this.displayEmployee(1 /* dummy val */);
-    // }
-
     public void displayPatientsAllotedTabular() {
-        // Displays the IDs of the patients in the PatientsAssignedToNur
-        // ArrayList of the Nurse.
+        /*
+         * Displays the IDs of the patients in the PatientsAssignedToNur
+         * ArrayList of the Nurse.
+         */
         for (Integer patID : this.PatientsAssignedToNur) {
             System.out.printf("| %-1s", patID);
         }
@@ -86,8 +83,10 @@ public class Nurse extends Employee {
     }
 
     public void displayPatientsAlloted() {
-        // Displays the IDs of the patients in the PatientsAssignedToNur
-        // ArrayList of the Nurse.
+        /*
+         * Displays the IDs of the patients in the PatientsAssignedToNur
+         * ArrayList of the Nurse.
+         */
         System.out.print("ID of patients allotted: ");
         for (Integer patID : this.PatientsAssignedToNur) {
             System.out.print(patID + ", ");

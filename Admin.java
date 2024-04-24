@@ -100,8 +100,10 @@ public class Admin {
                             Doctor d1 = new Doctor();
                             dat.docData.add(d1);
                             System.out.println("Doctor added successfully...");
-                            // System.out.println("\n\nDetails you entered: ");
-                            // d1.displayDoctor();
+                            /*
+                             * System.out.println("\n\nDetails you entered: ");
+                             * d1.displayDoctor();
+                             */
                             break;
                         }
                         case 2: {
