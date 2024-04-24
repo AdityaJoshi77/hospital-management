@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -8,7 +7,7 @@ public class DataBase {
     ArrayList<Doctor> docData = new ArrayList<>();
     ArrayList<Nurse> nurData = new ArrayList<>();
 
-    public DataBase() throws IOException {
+    public DataBase(){
         /*
          * DUMMY DATA
          * Included in the database to demonstrate the functionality of the system
@@ -298,49 +297,43 @@ public class DataBase {
         System.out.println("Nurse you wanted to remove was not found.\n");
     }
 
-    public int assign_Doctor(String dept, int patId)
-    {
-        // the allot_Nurse() function (belonging to the Patient Class) and the 
+    public int assign_Doctor(String dept, int patId) {
+        // the allot_Nurse() function (belonging to the Patient Class) and the
         // assign_Nurse() function (belonging to the Doctor Class) act as interface
         // between the Patient Class and the DataBase Class
         // for the purpose of information exchange.
 
-        // assign_Doctor() assigns the ID of a Doctor whose department matches with the 
+        // assign_Doctor() assigns the ID of a Doctor whose department matches with the
         // Patient's health issues on the basis of the String dept as
-        
+
         Integer minAllotPatient = Integer.MAX_VALUE;
         int allotDocId = -1;
         /*
          * The following iterator searchs for the ID of the speacilist
          * who has minimum number of patients alloted to him
          */
-        for(Doctor doc: this.docData)
-        {
-           if (dept.equals(doc.department)) 
-           {
-                if(minAllotPatient > doc.getNumberofPatientsAssigned())
-                {
+        for (Doctor doc : this.docData) {
+            if (dept.equals(doc.department)) {
+                if (minAllotPatient > doc.getNumberofPatientsAssigned()) {
                     minAllotPatient = doc.getNumberofPatientsAssigned();
                     allotDocId = doc.get_Id();
-                }  
-           }
+                }
+            }
         }
 
         /*
          * The following iterator searches for the Doctor who has the same
          * ID as found in the previous loop to assign the patient to him.
          */
-        for(Doctor doc: this.docData)
-        {
-            if(allotDocId == doc.get_Id())
-            {
+        for (Doctor doc : this.docData) {
+            if (allotDocId == doc.get_Id()) {
                 doc.PatientsAssignedToDoc.add(patId);
                 doc.setNumberOfPatientsAssigned(1);
                 System.out.println("Doctor assigned.");
                 return doc.get_Id();
             }
         }
-        
+
         System.out.println("Doctor could not be assigned.");
         return -1;
     }

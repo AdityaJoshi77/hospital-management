@@ -1,6 +1,3 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,10 +13,10 @@ public class Doctor extends Employee {
     
 
     // Default Constructor
-    public Doctor() throws IOException {
+    public Doctor(){
         DoctorID = ++DoctorID_Gen;
         Scanner scan = new Scanner(System.in);
-        BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
+        // BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
         this.type = "Doctor";
         System.out.println(" \nSelect Doctor's Specialization:");
         System.out.println("1. Rheumatology");
@@ -62,7 +59,7 @@ public class Doctor extends Employee {
     // Parameterized Constructor
     // Dummy data constructor
     public Doctor(int doctorID, String employeeName, String department, String jobTitle, int salary)
-            throws IOException {
+          {
         super(employeeName, salary, "Doctor");
         this.department = department;
         this.jobTitle = jobTitle;

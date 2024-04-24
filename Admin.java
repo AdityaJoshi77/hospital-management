@@ -1,11 +1,8 @@
 import java.util.*;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Admin {
-    public static void main(String[] args) throws IOException 
+    public static void main(String[] args)
     {
         DataBase dat = new DataBase(); 
         dat.initiateDatabase(); // Assigns Doctors to the dummy patients according to their health-issues.

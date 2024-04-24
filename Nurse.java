@@ -1,5 +1,3 @@
-import java.io.IOError;
-import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.util.ArrayList;
 
@@ -29,13 +27,13 @@ public class Nurse extends Employee {
         return numberOfPatientsAssigned;
     }
 
-    public Nurse() throws IOException {
+    public Nurse() {
         NurseID = ++NurseID_Gen;
         type = "Nurse";
     }
 
     // Dummy data constructor
-    public Nurse(int nurseID, String employeeName, int salary) throws IOException {
+    public Nurse(int nurseID, String employeeName, int salary){
         super(employeeName, salary, "Nurse");
         this.NurseID = nurseID;
         this.salary = salary;

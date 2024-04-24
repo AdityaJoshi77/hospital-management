@@ -1,6 +1,3 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class Employee 
@@ -9,7 +6,7 @@ public class Employee
     int salary;
     String type;
 
-    public Employee() throws IOException 
+    public Employee()
     {
         Scanner scan = new Scanner(System.in);
 
