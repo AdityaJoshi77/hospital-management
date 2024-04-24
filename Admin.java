@@ -182,6 +182,7 @@ public class Admin {
                     dat.CalibrateDatabase();
                     break;
                 case 5:
+                // Exits the system
                     System.exit(0);
             }
         }
