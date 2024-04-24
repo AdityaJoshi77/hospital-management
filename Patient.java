@@ -233,7 +233,8 @@ public class Patient {
         this.allottedNurseID = val;
     }
 
-    public void getPatientReport(DataBase dat) {
+    public void getPatientReport(DataBase dat) 
+    {
         System.out.println(
                 "\n---------------------------------------------------PATIENTS - RECORDS---------------------------------------------------------------");
         System.out.printf("| %-3s |", "ID");
@@ -252,7 +253,8 @@ public class Patient {
         this.displayPatient(1);
         // now displaying details of the doctor alloted
         Iterator<Doctor> iterator = dat.docData.iterator();
-        while (iterator.hasNext()) {
+        while (iterator.hasNext()) 
+        {
             Doctor doc = iterator.next();
             if (doc.get_Id() == this.allottedDoctorID) {
                 System.out.println("\nDoctor Alloted: ");

@@ -82,6 +82,11 @@ public class Admin {
                                 System.out.print("Enter ID of the Patient for the Medical Record:");
                                 int enterID = scan.nextInt();
                                 Patient foundPatient = dat.getPatient(enterID);
+                                if(foundPatient == null)
+                                {
+                                    System.out.println("Patient not found");
+                                    break;
+                                }
                                 foundPatient.getPatientReport(dat);
                                 break;
                             }
